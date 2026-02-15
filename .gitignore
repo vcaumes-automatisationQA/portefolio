@@ -1,18 +1,11 @@
-# IntelliJ / PyCharm
-.idea/
-*.iml
-
-# VSCode
-.vscode/
-
-# Node / JS
-node_modules/
-dist/
-
 # Python
 __pycache__/
 *.pyc
 .venv/
 
-# Dossier de log
+# IDE
+.idea/
+
+# Logs
+*.log
 log/
