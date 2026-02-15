@@ -1,77 +1,62 @@
-import sys
-from pathlib import Path
+*** Settings ***
+Resource    ../pages/Login.resource
+Resource    ../pages/inventory.resource
+Resource    ../pages/cart.resource
+Resource    ../pages/checkout.resource
 
-from selenium.webdriver.common.by import By
+Library     SeleniumLibrary
+Library    String
+Library    OperatingSystem
 
-# Ajouter le chemin racine du projet au PYTHONPATH
-sys.path.append(str(Path(__file__).resolve().parent.parent))
+*** Variables ***
+${URL}    https://www.saucedemo.com/
+${INVENTORY_URL}  https://www.saucedemo.com/inventory.html
+${ITEM_NAME}    Sauce Labs Backpack
+${USER_NAME}    standard_user
+${USER_PWD}    secret_sauce
 
-from selenium import webdriver
-import pytest
-from pages.login import LoginPage
-from pages.inventory import InventoryPage
+*** Test Cases ***
 
+Logout Standard
+    [Documentation]     Test du happy path pour l'action de logout standard depuis la page inventory.html
+    # Se loguer à l'application
+    Open And Login    ${URL}   ${USER_NAME}     ${USER_PWD}
 
-@pytest.fixture
-def driver():
-    # Choisir le navigateur, ici Chrome
-    options = webdriver.ChromeOptions()
-    options.add_argument("--incognito")
-    options.add_argument("--disable-blink-features=AutomationControlled")
-    options.add_argument("--disable-password-manager-reauthentication")
-    options.add_argument("--disable-save-password-bubble")
-    options.add_argument("--no-sandbox")
-    options.add_argument("--disable-notifications")
-    options.add_argument("--user-data-dir=/tmp/temp_chrome_profile")
-    driver = webdriver.Chrome(options=options)
-
-    yield driver  # fournit le driver au test
-
-    driver.quit()  # ferme le navigateur après le test
-
-
-def test_logout_standard(driver):
-    driver.get("https://www.saucedemo.com")
-
-    # On se logue avec l'utilisateur standard
-    login = LoginPage(driver)
-    login.login("standard_user", "secret_sauce")
-
-    # On instancie la page inventory
-    page_inventory = InventoryPage(driver)
+    # Ajouter un article
+    Add Item From Inventory    ${ITEM_NAME}
 
     # On ouvre le menu burger
-    page_inventory.open_burger_menu()
+    Open Burger Menu
 
     # On clique sur le logout
-    page_inventory.logout()
+    Logout
 
-    # Vérifier la présence du bouton de login
-    assert driver.find_element(By.ID, "login-button").is_displayed()
+    # Vérifier que le bouton login est affiché
+    Element Should Be Visible    id:login-button
 
-    # Vérifier la redirection vers l'URL qui correspond à la page de login du site
-    assert driver.current_url == "https://www.saucedemo.com/"
+    # Vérifier que l'URL est correcte
+    Location Should Be    ${URL}
 
 
-def test_inventory_not_accessible_after_logout(driver):
-    driver.get("https://www.saucedemo.com")
+Inventory Not Accessible After Logout
+    [Documentation]     Vérifier que l'on ne peut pas accèder à la page inventory.html après s'être délogué et qu'on est redirigé vers la page de login
+    # Se loguer à l'application
+    Open And Login    ${URL}   ${USER_NAME}     ${USER_PWD}
 
-    # On se logue avec l'utilisateur standard
-    login = LoginPage(driver)
-    login.login("standard_user", "secret_sauce")
-
-    # On instancie la page inventory
-    page_inventory = InventoryPage(driver)
+    # Ajouter un article
+    Add Item From Inventory    ${ITEM_NAME}
 
     # On ouvre le menu burger
-    page_inventory.open_burger_menu()
+    Open Burger Menu
 
     # On clique sur le logout
-    page_inventory.logout()
+    Logout
 
     # On essaie d'accèder à la page invertory.html
-    driver.get("https://www.saucedemo.com/inventory.html")
+    Go To    ${INVENTORY_URL}
 
-    # On vérifie qu'on est bien redirigé vers la page de login (même test qu'en fin de méthode test_logout_standard)
-    assert driver.find_element(By.ID, "login-button").is_displayed()
-    assert driver.current_url == "https://www.saucedemo.com/"
+    # Attendre que le bouton login soit visible (max 5 secondes)
+    Wait Until Element Is Visible    id:login-button    5s
+
+    # Maintenant on peut vérifier l'URL
+    Location Should Be    ${URL}
