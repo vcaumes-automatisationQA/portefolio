@@ -1,0 +1,1015 @@
+==============================================================================
+2026-02-14 11:17:28.323948 - INFO - + START SUITE: Test Inventory
+==============================================================================
+2026-02-14 11:17:28.598265 - INFO - +- START TEST: Add One Item To Cart
+------------------------------------------------------------------------------
+2026-02-14 11:17:28.598265 - INFO - +-- START KEYWORD: SeleniumLibrary.Open Browser [ ${URL} | chrome | options=add_argument("--incognito") ]
+2026-02-14 11:17:28.598265 - INFO - Opening browser 'chrome' to base url 'https://www.saucedemo.com/'.
+2026-02-14 11:17:29.994787 - DEBUG - Opened browser with session id 8f96cd95b2bac4c971fcf63fb67dad2f.
+2026-02-14 11:17:29.994787 - INFO - +-- END KEYWORD: SeleniumLibrary.Open Browser (1.396522 s)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2026-02-14 11:17:29.996912 - INFO - +-- START KEYWORD: Login.Login With Credentials [ ${USER_NAME} | ${USER_PWD} ]
+2026-02-14 11:17:29.996912 - INFO - +--- START KEYWORD: Login.Enter Username [ ${username} ]
+2026-02-14 11:17:29.998940 - INFO - +---- START KEYWORD: SeleniumLibrary.Wait Until Element Is Visible [ ${USERNAME_INPUT} | timeout=10s ]
+2026-02-14 11:17:30.039144 - INFO - +---- END KEYWORD: SeleniumLibrary.Wait Until Element Is Visible (0.040204 s)
+2026-02-14 11:17:30.039144 - INFO - +---- START KEYWORD: SeleniumLibrary.Input Text [ ${USERNAME_INPUT} | ${username} ]
+2026-02-14 11:17:30.040159 - INFO - Typing text 'standard_user' into text field 'id=user-name'.
+2026-02-14 11:17:30.232207 - INFO - +---- END KEYWORD: SeleniumLibrary.Input Text (0.193063 s)
+2026-02-14 11:17:30.232207 - INFO - +--- END KEYWORD: Login.Enter Username (0.235295 s)
+2026-02-14 11:17:30.232207 - INFO - +--- START KEYWORD: Login.Enter Password [ ${password} ]
+2026-02-14 11:17:30.232207 - INFO - +---- START KEYWORD: SeleniumLibrary.Input Text [ ${PASSWORD_INPUT} | ${password} ]
+2026-02-14 11:17:30.232207 - INFO - Typing text 'secret_sauce' into text field 'id=password'.
+2026-02-14 11:17:30.398668 - INFO - +---- END KEYWORD: SeleniumLibrary.Input Text (0.166461 s)
+2026-02-14 11:17:30.398668 - INFO - +--- END KEYWORD: Login.Enter Password (0.166461 s)
+2026-02-14 11:17:30.398668 - INFO - +--- START KEYWORD: Login.Click Login Button [ ]
+2026-02-14 11:17:30.398668 - INFO - +---- START KEYWORD: SeleniumLibrary.Click Button [ ${LOGIN_BUTTON} ]
+2026-02-14 11:17:30.398668 - INFO - Clicking button 'id=login-button'.
+2026-02-14 11:17:30.556734 - INFO - +---- END KEYWORD: SeleniumLibrary.Click Button (0.158066 s)
+2026-02-14 11:17:30.556734 - INFO - +--- END KEYWORD: Login.Click Login Button (0.158066 s)
+2026-02-14 11:17:30.556734 - INFO - +-- END KEYWORD: Login.Login With Credentials (0.559822 s)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2026-02-14 11:17:30.557738 - INFO - +-- START KEYWORD: Login.Inventory Should Be Visible [ ]
+2026-02-14 11:17:30.557738 - INFO - +--- START KEYWORD: SeleniumLibrary.Location Should Contain [ inventory.html ]
+2026-02-14 11:17:30.568549 - INFO - Current location contains 'inventory.html'.
+2026-02-14 11:17:30.568549 - INFO - +--- END KEYWORD: SeleniumLibrary.Location Should Contain (0.010811 s)
+2026-02-14 11:17:30.569555 - INFO - +-- END KEYWORD: Login.Inventory Should Be Visible (0.011817 s)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2026-02-14 11:17:30.569555 - INFO - +-- START KEYWORD: inventory.Add Item To Cart [ ${ITEM_NAME} ]
+2026-02-14 11:17:30.569555 - INFO - +--- START KEYWORD: BuiltIn.Set Variable [ xpath=//div[text()='${item_name}']/ancestor::div[@class='inventory_item']//button ]
+2026-02-14 11:17:30.570555 - INFO - ${locator} = xpath=//div[text()='Sauce Labs Backpack']/ancestor::div[@class='inventory_item']//button
+2026-02-14 11:17:30.570555 - INFO - +--- END KEYWORD: BuiltIn.Set Variable (0.001 s)
+2026-02-14 11:17:30.570555 - INFO - +--- START KEYWORD: SeleniumLibrary.Wait Until Element Is Visible [ ${locator} | timeout=10s ]
+2026-02-14 11:17:30.610246 - INFO - +--- END KEYWORD: SeleniumLibrary.Wait Until Element Is Visible (0.039691 s)
+2026-02-14 11:17:30.610246 - INFO - +--- START KEYWORD: SeleniumLibrary.Wait Until Element Is Enabled [ ${locator} | timeout=10s ]
+2026-02-14 11:17:30.640472 - INFO - +--- END KEYWORD: SeleniumLibrary.Wait Until Element Is Enabled (0.030226 s)
+2026-02-14 11:17:30.640472 - INFO - +--- START KEYWORD: SeleniumLibrary.Get Text [ ${locator} ]
+2026-02-14 11:17:30.670091 - INFO - ${text} = Add to cart
+2026-02-14 11:17:30.670091 - INFO - +--- END KEYWORD: SeleniumLibrary.Get Text (0.029619 s)
+2026-02-14 11:17:30.670091 - INFO - +--- START KEYWORD: String.Strip String [ ${text} ]
+2026-02-14 11:17:30.670091 - INFO - ${text} = Add to cart
+2026-02-14 11:17:30.671089 - INFO - +--- END KEYWORD: String.Strip String (0.000998 s)
+2026-02-14 11:17:30.671089 - INFO - +--- START KEYWORD: BuiltIn.Log To Console [ Valeur du bouton: "${text}" ]
+2026-02-14 11:17:30.671089 - INFO - +--- END KEYWORD: BuiltIn.Log To Console (0.0 s)
+2026-02-14 11:17:30.671089 - INFO - +--- START KEYWORD: BuiltIn.Should Be Equal [ ${text} | Add to cart | Bouton inattendu : ${text} ]
+2026-02-14 11:17:30.672126 - DEBUG - Argument types are:
+<class 'str'>
+<class 'str'>
+2026-02-14 11:17:30.672431 - INFO - +--- END KEYWORD: BuiltIn.Should Be Equal (0.001342 s)
+2026-02-14 11:17:30.672431 - INFO - +--- START KEYWORD: SeleniumLibrary.Click Element [ ${locator} ]
+2026-02-14 11:17:30.672431 - INFO - Clicking element 'xpath=//div[text()='Sauce Labs Backpack']/ancestor::div[@class='inventory_item']//button'.
+2026-02-14 11:17:30.753258 - INFO - +--- END KEYWORD: SeleniumLibrary.Click Element (0.080827 s)
+2026-02-14 11:17:30.753258 - INFO - +--- START KEYWORD: BuiltIn.Set Variable [ xpath=//div[text()='${item_name}']/ancestor::div[@class='inventory_item']//button ]
+2026-02-14 11:17:30.753258 - INFO - ${locator} = xpath=//div[text()='Sauce Labs Backpack']/ancestor::div[@class='inventory_item']//button
+2026-02-14 11:17:30.753258 - INFO - +--- END KEYWORD: BuiltIn.Set Variable (0.0 s)
+2026-02-14 11:17:30.753258 - INFO - +--- START KEYWORD: SeleniumLibrary.Wait Until Element Is Visible [ ${locator} | timeout=10s ]
+2026-02-14 11:17:30.772472 - INFO - +--- END KEYWORD: SeleniumLibrary.Wait Until Element Is Visible (0.019214 s)
+2026-02-14 11:17:30.772472 - INFO - +--- START KEYWORD: SeleniumLibrary.Wait Until Element Is Enabled [ ${locator} | timeout=10s ]
+2026-02-14 11:17:30.794201 - INFO - +--- END KEYWORD: SeleniumLibrary.Wait Until Element Is Enabled (0.021729 s)
+2026-02-14 11:17:30.794201 - INFO - +--- START KEYWORD: SeleniumLibrary.Get Text [ ${locator} ]
+2026-02-14 11:17:30.806200 - INFO - ${text} = Remove
+2026-02-14 11:17:30.806200 - INFO - +--- END KEYWORD: SeleniumLibrary.Get Text (0.011999 s)
+2026-02-14 11:17:30.806200 - INFO - +--- START KEYWORD: String.Strip String [ ${text} ]
+2026-02-14 11:17:30.806200 - INFO - ${text} = Remove
+2026-02-14 11:17:30.806200 - INFO - +--- END KEYWORD: String.Strip String (0.0 s)
+2026-02-14 11:17:30.806200 - INFO - +--- START KEYWORD: BuiltIn.Log To Console [ Valeur du bouton: "${text}" ]
+2026-02-14 11:17:30.806200 - INFO - +--- END KEYWORD: BuiltIn.Log To Console (0.0 s)
+2026-02-14 11:17:30.806200 - INFO - +--- START KEYWORD: BuiltIn.Should Be Equal [ ${text} | Remove | Bouton inattendu : ${text} ]
+2026-02-14 11:17:30.806200 - DEBUG - Argument types are:
+<class 'str'>
+<class 'str'>
+2026-02-14 11:17:30.806200 - INFO - +--- END KEYWORD: BuiltIn.Should Be Equal (0.0 s)
+2026-02-14 11:17:30.806200 - INFO - +-- END KEYWORD: inventory.Add Item To Cart (0.236645 s)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2026-02-14 11:17:30.806200 - INFO - +-- START KEYWORD: inventory.Get Cart Badge [ ]
+2026-02-14 11:17:30.806200 - INFO - +--- START KEYWORD: BuiltIn.Run Keyword And Return Status [ Page Should Contain Element | ${SHOPPING_CART_BADGE} ]
+2026-02-14 11:17:30.806200 - INFO - +---- START KEYWORD: SeleniumLibrary.Page Should Contain Element [ ${SHOPPING_CART_BADGE} ]
+2026-02-14 11:17:30.821922 - INFO - Current page contains element 'css=.shopping_cart_badge'.
+2026-02-14 11:17:30.821922 - INFO - +---- END KEYWORD: SeleniumLibrary.Page Should Contain Element (0.015722 s)
+2026-02-14 11:17:30.821922 - INFO - ${exists} = True
+2026-02-14 11:17:30.821922 - INFO - +--- END KEYWORD: BuiltIn.Run Keyword And Return Status (0.015722 s)
+2026-02-14 11:17:30.821922 - INFO - +--- START IF/ELSE ROOT:
+2026-02-14 11:17:30.821922 - INFO - +---- START IF: not ${exists}
+2026-02-14 11:17:30.821922 - INFO - +----- START RETURN:
+2026-02-14 11:17:30.821922 - INFO - +----- END RETURN:  (0.0 s)
+2026-02-14 11:17:30.821922 - INFO - +---- END IF: not ${exists} (0.0 s)
+2026-02-14 11:17:30.821922 - INFO - +--- END IF/ELSE ROOT:  (0.0 s)
+2026-02-14 11:17:30.821922 - INFO - +--- START KEYWORD: SeleniumLibrary.Wait Until Element Is Visible [ ${SHOPPING_CART_BADGE} | timeout=10s ]
+2026-02-14 11:17:30.837948 - INFO - +--- END KEYWORD: SeleniumLibrary.Wait Until Element Is Visible (0.016026 s)
+2026-02-14 11:17:30.837948 - INFO - +--- START KEYWORD: SeleniumLibrary.Wait Until Element Is Enabled [ ${SHOPPING_CART_BADGE} | timeout=10s ]
+2026-02-14 11:17:30.853756 - INFO - +--- END KEYWORD: SeleniumLibrary.Wait Until Element Is Enabled (0.015808 s)
+2026-02-14 11:17:30.853756 - INFO - +--- START KEYWORD: SeleniumLibrary.Get Text [ ${SHOPPING_CART_BADGE} ]
+2026-02-14 11:17:30.901704 - INFO - ${text} = 1
+2026-02-14 11:17:30.901704 - INFO - +--- END KEYWORD: SeleniumLibrary.Get Text (0.047948 s)
+2026-02-14 11:17:30.901704 - INFO - +--- START KEYWORD: String.Strip String [ ${text} ]
+2026-02-14 11:17:30.901704 - INFO - ${text} = 1
+2026-02-14 11:17:30.901704 - INFO - +--- END KEYWORD: String.Strip String (0.0 s)
+2026-02-14 11:17:30.901704 - INFO - +--- START IF/ELSE ROOT:
+2026-02-14 11:17:30.901704 - INFO - +---- START IF: '${text}' == ''
+2026-02-14 11:17:30.901704 - INFO - +----- START RETURN:
+2026-02-14 11:17:30.901704 - INFO - +----- END RETURN:  (0.0 s)
+2026-02-14 11:17:30.901704 - INFO - +---- END IF: '${text}' == '' (0.0 s)
+2026-02-14 11:17:30.901704 - INFO - +--- END IF/ELSE ROOT:  (0.0 s)
+2026-02-14 11:17:30.901704 - INFO - +--- START KEYWORD: BuiltIn.Convert To Integer [ ${text} ]
+2026-02-14 11:17:30.901704 - DEBUG - Argument types are:
+<class 'str'>
+2026-02-14 11:17:30.901704 - INFO - ${nb_items} = 1
+2026-02-14 11:17:30.901704 - INFO - +--- END KEYWORD: BuiltIn.Convert To Integer (0.0 s)
+2026-02-14 11:17:30.901704 - INFO - +--- START RETURN:
+2026-02-14 11:17:30.901704 - INFO - +--- END RETURN:  (0.0 s)
+2026-02-14 11:17:30.901704 - INFO - ${nb_items} = 1
+2026-02-14 11:17:30.901704 - INFO - +-- END KEYWORD: inventory.Get Cart Badge (0.095504 s)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2026-02-14 11:17:30.901704 - INFO - +-- START KEYWORD: BuiltIn.Should Be Equal As Integers [ ${nb_items} | 1 ]
+2026-02-14 11:17:30.901704 - INFO - Argument types are:
+<class 'int'>
+<class 'str'>
+2026-02-14 11:17:30.901704 - INFO - +-- END KEYWORD: BuiltIn.Should Be Equal As Integers (0.0 s)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2026-02-14 11:17:30.901704 - INFO - +-- START TEARDOWN: Login.Close Browser If Open [ ]
+2026-02-14 11:17:30.901704 - INFO - +--- START KEYWORD: BuiltIn.Run Keyword And Ignore Error [ Close Browser ]
+2026-02-14 11:17:30.901704 - INFO - +---- START KEYWORD: SeleniumLibrary.Close Browser [ ]
+2026-02-14 11:17:30.901704 - DEBUG - Closing browser with session id 8f96cd95b2bac4c971fcf63fb67dad2f.
+2026-02-14 11:17:33.205624 - INFO - +---- END KEYWORD: SeleniumLibrary.Close Browser (2.30392 s)
+2026-02-14 11:17:33.205624 - INFO - +--- END KEYWORD: BuiltIn.Run Keyword And Ignore Error (2.30392 s)
+2026-02-14 11:17:33.205624 - INFO - +-- END TEARDOWN: Login.Close Browser If Open (2.30392 s)
+------------------------------------------------------------------------------
+2026-02-14 11:17:33.205624 - INFO - +- END TEST: Add One Item To Cart (4.607359 s)
+------------------------------------------------------------------------------
+2026-02-14 11:17:33.205624 - INFO - +- START TEST: Remove One Item From Cart
+------------------------------------------------------------------------------
+2026-02-14 11:17:33.205624 - INFO - +-- START KEYWORD: SeleniumLibrary.Open Browser [ ${URL} | chrome | options=add_argument("--incognito") ]
+2026-02-14 11:17:33.205624 - INFO - Opening browser 'chrome' to base url 'https://www.saucedemo.com/'.
+2026-02-14 11:17:34.484528 - DEBUG - Opened browser with session id 8785d61e9cb37a8693fcca7db21a3814.
+2026-02-14 11:17:34.484528 - INFO - +-- END KEYWORD: SeleniumLibrary.Open Browser (1.278904 s)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2026-02-14 11:17:34.484528 - INFO - +-- START KEYWORD: Login.Login With Credentials [ ${USER_NAME} | ${USER_PWD} ]
+2026-02-14 11:17:34.484528 - INFO - +--- START KEYWORD: Login.Enter Username [ ${username} ]
+2026-02-14 11:17:34.484528 - INFO - +---- START KEYWORD: SeleniumLibrary.Wait Until Element Is Visible [ ${USERNAME_INPUT} | timeout=10s ]
+2026-02-14 11:17:34.537185 - INFO - +---- END KEYWORD: SeleniumLibrary.Wait Until Element Is Visible (0.052657 s)
+2026-02-14 11:17:34.537185 - INFO - +---- START KEYWORD: SeleniumLibrary.Input Text [ ${USERNAME_INPUT} | ${username} ]
+2026-02-14 11:17:34.537185 - INFO - Typing text 'standard_user' into text field 'id=user-name'.
+2026-02-14 11:17:34.731700 - INFO - +---- END KEYWORD: SeleniumLibrary.Input Text (0.194515 s)
+2026-02-14 11:17:34.731700 - INFO - +--- END KEYWORD: Login.Enter Username (0.247172 s)
+2026-02-14 11:17:34.732703 - INFO - +--- START KEYWORD: Login.Enter Password [ ${password} ]
+2026-02-14 11:17:34.732703 - INFO - +---- START KEYWORD: SeleniumLibrary.Input Text [ ${PASSWORD_INPUT} | ${password} ]
+2026-02-14 11:17:34.733700 - INFO - Typing text 'secret_sauce' into text field 'id=password'.
+2026-02-14 11:17:34.848181 - INFO - +---- END KEYWORD: SeleniumLibrary.Input Text (0.115478 s)
+2026-02-14 11:17:34.848181 - INFO - +--- END KEYWORD: Login.Enter Password (0.115478 s)
+2026-02-14 11:17:34.848181 - INFO - +--- START KEYWORD: Login.Click Login Button [ ]
+2026-02-14 11:17:34.848181 - INFO - +---- START KEYWORD: SeleniumLibrary.Click Button [ ${LOGIN_BUTTON} ]
+2026-02-14 11:17:34.848181 - INFO - Clicking button 'id=login-button'.
+2026-02-14 11:17:34.989021 - INFO - +---- END KEYWORD: SeleniumLibrary.Click Button (0.14084 s)
+2026-02-14 11:17:34.989021 - INFO - +--- END KEYWORD: Login.Click Login Button (0.14084 s)
+2026-02-14 11:17:34.990034 - INFO - +-- END KEYWORD: Login.Login With Credentials (0.505506 s)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2026-02-14 11:17:34.990034 - INFO - +-- START KEYWORD: Login.Inventory Should Be Visible [ ]
+2026-02-14 11:17:34.991035 - INFO - +--- START KEYWORD: SeleniumLibrary.Location Should Contain [ inventory.html ]
+2026-02-14 11:17:35.004429 - INFO - Current location contains 'inventory.html'.
+2026-02-14 11:17:35.004429 - INFO - +--- END KEYWORD: SeleniumLibrary.Location Should Contain (0.013394 s)
+2026-02-14 11:17:35.004429 - INFO - +-- END KEYWORD: Login.Inventory Should Be Visible (0.014395 s)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2026-02-14 11:17:35.004429 - INFO - +-- START KEYWORD: inventory.Add Item To Cart [ ${ITEM_NAME} ]
+2026-02-14 11:17:35.005461 - INFO - +--- START KEYWORD: BuiltIn.Set Variable [ xpath=//div[text()='${item_name}']/ancestor::div[@class='inventory_item']//button ]
+2026-02-14 11:17:35.005461 - INFO - ${locator} = xpath=//div[text()='Sauce Labs Backpack']/ancestor::div[@class='inventory_item']//button
+2026-02-14 11:17:35.005461 - INFO - +--- END KEYWORD: BuiltIn.Set Variable (0.0 s)
+2026-02-14 11:17:35.005461 - INFO - +--- START KEYWORD: SeleniumLibrary.Wait Until Element Is Visible [ ${locator} | timeout=10s ]
+2026-02-14 11:17:35.043707 - INFO - +--- END KEYWORD: SeleniumLibrary.Wait Until Element Is Visible (0.038246 s)
+2026-02-14 11:17:35.043707 - INFO - +--- START KEYWORD: SeleniumLibrary.Wait Until Element Is Enabled [ ${locator} | timeout=10s ]
+2026-02-14 11:17:35.070392 - INFO - +--- END KEYWORD: SeleniumLibrary.Wait Until Element Is Enabled (0.026685 s)
+2026-02-14 11:17:35.070392 - INFO - +--- START KEYWORD: SeleniumLibrary.Get Text [ ${locator} ]
+2026-02-14 11:17:35.102042 - INFO - ${text} = Add to cart
+2026-02-14 11:17:35.102042 - INFO - +--- END KEYWORD: SeleniumLibrary.Get Text (0.03165 s)
+2026-02-14 11:17:35.102042 - INFO - +--- START KEYWORD: String.Strip String [ ${text} ]
+2026-02-14 11:17:35.102042 - INFO - ${text} = Add to cart
+2026-02-14 11:17:35.102042 - INFO - +--- END KEYWORD: String.Strip String (0.0 s)
+2026-02-14 11:17:35.102042 - INFO - +--- START KEYWORD: BuiltIn.Log To Console [ Valeur du bouton: "${text}" ]
+2026-02-14 11:17:35.102042 - INFO - +--- END KEYWORD: BuiltIn.Log To Console (0.0 s)
+2026-02-14 11:17:35.102042 - INFO - +--- START KEYWORD: BuiltIn.Should Be Equal [ ${text} | Add to cart | Bouton inattendu : ${text} ]
+2026-02-14 11:17:35.102042 - DEBUG - Argument types are:
+<class 'str'>
+<class 'str'>
+2026-02-14 11:17:35.102042 - INFO - +--- END KEYWORD: BuiltIn.Should Be Equal (0.0 s)
+2026-02-14 11:17:35.102042 - INFO - +--- START KEYWORD: SeleniumLibrary.Click Element [ ${locator} ]
+2026-02-14 11:17:35.102042 - INFO - Clicking element 'xpath=//div[text()='Sauce Labs Backpack']/ancestor::div[@class='inventory_item']//button'.
+2026-02-14 11:17:35.192555 - INFO - +--- END KEYWORD: SeleniumLibrary.Click Element (0.090513 s)
+2026-02-14 11:17:35.192555 - INFO - +--- START KEYWORD: BuiltIn.Set Variable [ xpath=//div[text()='${item_name}']/ancestor::div[@class='inventory_item']//button ]
+2026-02-14 11:17:35.192555 - INFO - ${locator} = xpath=//div[text()='Sauce Labs Backpack']/ancestor::div[@class='inventory_item']//button
+2026-02-14 11:17:35.192555 - INFO - +--- END KEYWORD: BuiltIn.Set Variable (0.0 s)
+2026-02-14 11:17:35.192555 - INFO - +--- START KEYWORD: SeleniumLibrary.Wait Until Element Is Visible [ ${locator} | timeout=10s ]
+2026-02-14 11:17:35.215360 - INFO - +--- END KEYWORD: SeleniumLibrary.Wait Until Element Is Visible (0.022805 s)
+2026-02-14 11:17:35.215360 - INFO - +--- START KEYWORD: SeleniumLibrary.Wait Until Element Is Enabled [ ${locator} | timeout=10s ]
+2026-02-14 11:17:35.240355 - INFO - +--- END KEYWORD: SeleniumLibrary.Wait Until Element Is Enabled (0.024995 s)
+2026-02-14 11:17:35.240355 - INFO - +--- START KEYWORD: SeleniumLibrary.Get Text [ ${locator} ]
+2026-02-14 11:17:35.272248 - INFO - ${text} = Remove
+2026-02-14 11:17:35.272248 - INFO - +--- END KEYWORD: SeleniumLibrary.Get Text (0.031893 s)
+2026-02-14 11:17:35.272248 - INFO - +--- START KEYWORD: String.Strip String [ ${text} ]
+2026-02-14 11:17:35.272248 - INFO - ${text} = Remove
+2026-02-14 11:17:35.272248 - INFO - +--- END KEYWORD: String.Strip String (0.0 s)
+2026-02-14 11:17:35.272248 - INFO - +--- START KEYWORD: BuiltIn.Log To Console [ Valeur du bouton: "${text}" ]
+2026-02-14 11:17:35.272248 - INFO - +--- END KEYWORD: BuiltIn.Log To Console (0.0 s)
+2026-02-14 11:17:35.272248 - INFO - +--- START KEYWORD: BuiltIn.Should Be Equal [ ${text} | Remove | Bouton inattendu : ${text} ]
+2026-02-14 11:17:35.272248 - DEBUG - Argument types are:
+<class 'str'>
+<class 'str'>
+2026-02-14 11:17:35.272248 - INFO - +--- END KEYWORD: BuiltIn.Should Be Equal (0.0 s)
+2026-02-14 11:17:35.272248 - INFO - +-- END KEYWORD: inventory.Add Item To Cart (0.267819 s)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2026-02-14 11:17:35.272248 - INFO - +-- START KEYWORD: inventory.Get Cart Badge [ ]
+2026-02-14 11:17:35.272248 - INFO - +--- START KEYWORD: BuiltIn.Run Keyword And Return Status [ Page Should Contain Element | ${SHOPPING_CART_BADGE} ]
+2026-02-14 11:17:35.272248 - INFO - +---- START KEYWORD: SeleniumLibrary.Page Should Contain Element [ ${SHOPPING_CART_BADGE} ]
+2026-02-14 11:17:35.295510 - INFO - Current page contains element 'css=.shopping_cart_badge'.
+2026-02-14 11:17:35.295510 - INFO - +---- END KEYWORD: SeleniumLibrary.Page Should Contain Element (0.023262 s)
+2026-02-14 11:17:35.295510 - INFO - ${exists} = True
+2026-02-14 11:17:35.295510 - INFO - +--- END KEYWORD: BuiltIn.Run Keyword And Return Status (0.023262 s)
+2026-02-14 11:17:35.295510 - INFO - +--- START IF/ELSE ROOT:
+2026-02-14 11:17:35.295510 - INFO - +---- START IF: not ${exists}
+2026-02-14 11:17:35.295510 - INFO - +----- START RETURN:
+2026-02-14 11:17:35.295510 - INFO - +----- END RETURN:  (0.0 s)
+2026-02-14 11:17:35.295510 - INFO - +---- END IF: not ${exists} (0.0 s)
+2026-02-14 11:17:35.295510 - INFO - +--- END IF/ELSE ROOT:  (0.0 s)
+2026-02-14 11:17:35.295510 - INFO - +--- START KEYWORD: SeleniumLibrary.Wait Until Element Is Visible [ ${SHOPPING_CART_BADGE} | timeout=10s ]
+2026-02-14 11:17:35.304341 - INFO - +--- END KEYWORD: SeleniumLibrary.Wait Until Element Is Visible (0.008831 s)
+2026-02-14 11:17:35.304341 - INFO - +--- START KEYWORD: SeleniumLibrary.Wait Until Element Is Enabled [ ${SHOPPING_CART_BADGE} | timeout=10s ]
+2026-02-14 11:17:35.335832 - INFO - +--- END KEYWORD: SeleniumLibrary.Wait Until Element Is Enabled (0.031491 s)
+2026-02-14 11:17:35.335832 - INFO - +--- START KEYWORD: SeleniumLibrary.Get Text [ ${SHOPPING_CART_BADGE} ]
+2026-02-14 11:17:35.351553 - INFO - ${text} = 1
+2026-02-14 11:17:35.351553 - INFO - +--- END KEYWORD: SeleniumLibrary.Get Text (0.015721 s)
+2026-02-14 11:17:35.351553 - INFO - +--- START KEYWORD: String.Strip String [ ${text} ]
+2026-02-14 11:17:35.351553 - INFO - ${text} = 1
+2026-02-14 11:17:35.351553 - INFO - +--- END KEYWORD: String.Strip String (0.0 s)
+2026-02-14 11:17:35.351553 - INFO - +--- START IF/ELSE ROOT:
+2026-02-14 11:17:35.351553 - INFO - +---- START IF: '${text}' == ''
+2026-02-14 11:17:35.351553 - INFO - +----- START RETURN:
+2026-02-14 11:17:35.351553 - INFO - +----- END RETURN:  (0.0 s)
+2026-02-14 11:17:35.351553 - INFO - +---- END IF: '${text}' == '' (0.0 s)
+2026-02-14 11:17:35.351553 - INFO - +--- END IF/ELSE ROOT:  (0.0 s)
+2026-02-14 11:17:35.351553 - INFO - +--- START KEYWORD: BuiltIn.Convert To Integer [ ${text} ]
+2026-02-14 11:17:35.351553 - DEBUG - Argument types are:
+<class 'str'>
+2026-02-14 11:17:35.351553 - INFO - ${nb_items} = 1
+2026-02-14 11:17:35.351553 - INFO - +--- END KEYWORD: BuiltIn.Convert To Integer (0.0 s)
+2026-02-14 11:17:35.351553 - INFO - +--- START RETURN:
+2026-02-14 11:17:35.351553 - INFO - +--- END RETURN:  (0.0 s)
+2026-02-14 11:17:35.351553 - INFO - ${nb_items} = 1
+2026-02-14 11:17:35.351553 - INFO - +-- END KEYWORD: inventory.Get Cart Badge (0.079305 s)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2026-02-14 11:17:35.351553 - INFO - +-- START KEYWORD: BuiltIn.Should Be Equal As Integers [ ${nb_items} | 1 ]
+2026-02-14 11:17:35.351553 - INFO - Argument types are:
+<class 'int'>
+<class 'str'>
+2026-02-14 11:17:35.351553 - INFO - +-- END KEYWORD: BuiltIn.Should Be Equal As Integers (0.0 s)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2026-02-14 11:17:35.351553 - INFO - +-- START KEYWORD: inventory.Remove Item From Cart [ ${ITEM_NAME} ]
+2026-02-14 11:17:35.351553 - INFO - +--- START KEYWORD: BuiltIn.Set Variable [ xpath=//div[text()='${item_name}']/ancestor::div[@class='inventory_item']//button ]
+2026-02-14 11:17:35.351553 - INFO - ${locator} = xpath=//div[text()='Sauce Labs Backpack']/ancestor::div[@class='inventory_item']//button
+2026-02-14 11:17:35.351553 - INFO - +--- END KEYWORD: BuiltIn.Set Variable (0.0 s)
+2026-02-14 11:17:35.351553 - INFO - +--- START KEYWORD: SeleniumLibrary.Wait Until Element Is Visible [ ${locator} | timeout=10s ]
+2026-02-14 11:17:35.367232 - INFO - +--- END KEYWORD: SeleniumLibrary.Wait Until Element Is Visible (0.015679 s)
+2026-02-14 11:17:35.367232 - INFO - +--- START KEYWORD: SeleniumLibrary.Wait Until Element Is Enabled [ ${locator} | timeout=10s ]
+2026-02-14 11:17:35.398537 - INFO - +--- END KEYWORD: SeleniumLibrary.Wait Until Element Is Enabled (0.031305 s)
+2026-02-14 11:17:35.398537 - INFO - +--- START KEYWORD: SeleniumLibrary.Get Text [ ${locator} ]
+2026-02-14 11:17:35.416149 - INFO - ${text} = Remove
+2026-02-14 11:17:35.416149 - INFO - +--- END KEYWORD: SeleniumLibrary.Get Text (0.017612 s)
+2026-02-14 11:17:35.416149 - INFO - +--- START KEYWORD: BuiltIn.Should Be Equal [ ${text} | Remove | Bouton inattendu : ${text} ]
+2026-02-14 11:17:35.416149 - DEBUG - Argument types are:
+<class 'str'>
+<class 'str'>
+2026-02-14 11:17:35.416149 - INFO - +--- END KEYWORD: BuiltIn.Should Be Equal (0.0 s)
+2026-02-14 11:17:35.416149 - INFO - +--- START KEYWORD: SeleniumLibrary.Click Element [ ${locator} ]
+2026-02-14 11:17:35.416149 - INFO - Clicking element 'xpath=//div[text()='Sauce Labs Backpack']/ancestor::div[@class='inventory_item']//button'.
+2026-02-14 11:17:35.482154 - INFO - +--- END KEYWORD: SeleniumLibrary.Click Element (0.066005 s)
+2026-02-14 11:17:35.482154 - INFO - +--- START KEYWORD: BuiltIn.Set Variable [ xpath=//div[text()='${item_name}']/ancestor::div[@class='inventory_item']//button ]
+2026-02-14 11:17:35.482154 - INFO - ${locator} = xpath=//div[text()='Sauce Labs Backpack']/ancestor::div[@class='inventory_item']//button
+2026-02-14 11:17:35.482154 - INFO - +--- END KEYWORD: BuiltIn.Set Variable (0.0 s)
+2026-02-14 11:17:35.482154 - INFO - +--- START KEYWORD: SeleniumLibrary.Wait Until Element Is Visible [ ${locator} | timeout=10s ]
+2026-02-14 11:17:35.502474 - INFO - +--- END KEYWORD: SeleniumLibrary.Wait Until Element Is Visible (0.02032 s)
+2026-02-14 11:17:35.502474 - INFO - +--- START KEYWORD: SeleniumLibrary.Wait Until Element Is Enabled [ ${locator} | timeout=10s ]
+2026-02-14 11:17:35.522388 - INFO - +--- END KEYWORD: SeleniumLibrary.Wait Until Element Is Enabled (0.019914 s)
+2026-02-14 11:17:35.522388 - INFO - +--- START KEYWORD: SeleniumLibrary.Get Text [ ${locator} ]
+2026-02-14 11:17:35.539510 - INFO - ${text} = Add to cart
+2026-02-14 11:17:35.539510 - INFO - +--- END KEYWORD: SeleniumLibrary.Get Text (0.017122 s)
+2026-02-14 11:17:35.539510 - INFO - +--- START KEYWORD: BuiltIn.Should Be Equal [ ${text} | Add to cart | Bouton inattendu : ${text} ]
+2026-02-14 11:17:35.539510 - DEBUG - Argument types are:
+<class 'str'>
+<class 'str'>
+2026-02-14 11:17:35.539510 - INFO - +--- END KEYWORD: BuiltIn.Should Be Equal (0.0 s)
+2026-02-14 11:17:35.539510 - INFO - +-- END KEYWORD: inventory.Remove Item From Cart (0.187957 s)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2026-02-14 11:17:35.539510 - INFO - +-- START KEYWORD: inventory.Get Cart Badge [ ]
+2026-02-14 11:17:35.539510 - INFO - +--- START KEYWORD: BuiltIn.Run Keyword And Return Status [ Page Should Contain Element | ${SHOPPING_CART_BADGE} ]
+2026-02-14 11:17:35.539510 - INFO - +---- START KEYWORD: SeleniumLibrary.Page Should Contain Element [ ${SHOPPING_CART_BADGE} ]
+2026-02-14 11:17:35.671813 - INFO - </td></tr><tr><td colspan="3"><a href="selenium-screenshot-5.png"><img src="selenium-screenshot-5.png" width="800px"></a>
+2026-02-14 11:17:35.671813 - FAIL - Page should have contained element 'css=.shopping_cart_badge' but did not.
+2026-02-14 11:17:35.671813 - DEBUG - Traceback (most recent call last):
+  File "C:\test_auto_portefolio_VCA\saucedemo\robotframework\.venv\Lib\site-packages\SeleniumLibrary\__init__.py", line 676, in run_keyword
+    return DynamicCore.run_keyword(self, name, args, kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\test_auto_portefolio_VCA\saucedemo\robotframework\.venv\Lib\site-packages\robotlibcore\core\dynamic.py", line 25, in run_keyword
+    return self.keywords[name](*args, **(kwargs or {}))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\test_auto_portefolio_VCA\saucedemo\robotframework\.venv\Lib\site-packages\SeleniumLibrary\keywords\element.py", line 182, in page_should_contain_element
+    return self.assert_page_contains(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\test_auto_portefolio_VCA\saucedemo\robotframework\.venv\Lib\site-packages\SeleniumLibrary\base\librarycomponent.py", line 60, in assert_page_contains
+    raise AssertionError(message)
+AssertionError: Page should have contained element 'css=.shopping_cart_badge' but did not.
+2026-02-14 11:17:35.671813 - INFO - +---- END KEYWORD: SeleniumLibrary.Page Should Contain Element (0.132303 s)
+2026-02-14 11:17:35.671813 - INFO - ${exists} = False
+2026-02-14 11:17:35.671813 - INFO - +--- END KEYWORD: BuiltIn.Run Keyword And Return Status (0.132303 s)
+2026-02-14 11:17:35.671813 - INFO - +--- START IF/ELSE ROOT:
+2026-02-14 11:17:35.671813 - INFO - +---- START IF: not ${exists}
+2026-02-14 11:17:35.671813 - INFO - +----- START RETURN:
+2026-02-14 11:17:35.671813 - INFO - +----- END RETURN:  (0.0 s)
+2026-02-14 11:17:35.671813 - INFO - +---- END IF: not ${exists} (0.0 s)
+2026-02-14 11:17:35.671813 - INFO - +--- END IF/ELSE ROOT:  (0.0 s)
+2026-02-14 11:17:35.671813 - INFO - +--- START KEYWORD: SeleniumLibrary.Wait Until Element Is Visible [ ${SHOPPING_CART_BADGE} | timeout=10s ]
+2026-02-14 11:17:35.671813 - INFO - +--- END KEYWORD: SeleniumLibrary.Wait Until Element Is Visible (0.0 s)
+2026-02-14 11:17:35.671813 - INFO - +--- START KEYWORD: SeleniumLibrary.Wait Until Element Is Enabled [ ${SHOPPING_CART_BADGE} | timeout=10s ]
+2026-02-14 11:17:35.671813 - INFO - +--- END KEYWORD: SeleniumLibrary.Wait Until Element Is Enabled (0.0 s)
+2026-02-14 11:17:35.671813 - INFO - +--- START KEYWORD: SeleniumLibrary.Get Text [ ${SHOPPING_CART_BADGE} ]
+2026-02-14 11:17:35.671813 - INFO - +--- END KEYWORD: SeleniumLibrary.Get Text (0.0 s)
+2026-02-14 11:17:35.671813 - INFO - +--- START KEYWORD: String.Strip String [ ${text} ]
+2026-02-14 11:17:35.671813 - INFO - +--- END KEYWORD: String.Strip String (0.0 s)
+2026-02-14 11:17:35.671813 - INFO - +--- START IF/ELSE ROOT:
+2026-02-14 11:17:35.671813 - INFO - +---- START IF: '${text}' == ''
+2026-02-14 11:17:35.671813 - INFO - +----- START RETURN:
+2026-02-14 11:17:35.671813 - INFO - +----- END RETURN:  (0.0 s)
+2026-02-14 11:17:35.671813 - INFO - +---- END IF: '${text}' == '' (0.0 s)
+2026-02-14 11:17:35.671813 - INFO - +--- END IF/ELSE ROOT:  (0.0 s)
+2026-02-14 11:17:35.671813 - INFO - +--- START KEYWORD: BuiltIn.Convert To Integer [ ${text} ]
+2026-02-14 11:17:35.671813 - INFO - +--- END KEYWORD: BuiltIn.Convert To Integer (0.0 s)
+2026-02-14 11:17:35.671813 - INFO - +--- START RETURN:
+2026-02-14 11:17:35.671813 - INFO - +--- END RETURN:  (0.0 s)
+2026-02-14 11:17:35.671813 - INFO - ${nb_items} = 0
+2026-02-14 11:17:35.671813 - INFO - +-- END KEYWORD: inventory.Get Cart Badge (0.132303 s)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2026-02-14 11:17:35.687944 - INFO - +-- START KEYWORD: BuiltIn.Should Be Equal As Integers [ ${nb_items} | 0 ]
+2026-02-14 11:17:35.687944 - DEBUG - Argument types are:
+<class 'str'>
+<class 'str'>
+2026-02-14 11:17:35.687944 - INFO - +-- END KEYWORD: BuiltIn.Should Be Equal As Integers (0.0 s)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2026-02-14 11:17:35.687944 - INFO - +-- START TEARDOWN: Login.Close Browser If Open [ ]
+2026-02-14 11:17:35.687944 - INFO - +--- START KEYWORD: BuiltIn.Run Keyword And Ignore Error [ Close Browser ]
+2026-02-14 11:17:35.687944 - INFO - +---- START KEYWORD: SeleniumLibrary.Close Browser [ ]
+2026-02-14 11:17:35.687944 - DEBUG - Closing browser with session id 8785d61e9cb37a8693fcca7db21a3814.
+2026-02-14 11:17:37.917774 - INFO - +---- END KEYWORD: SeleniumLibrary.Close Browser (2.22983 s)
+2026-02-14 11:17:37.917774 - INFO - +--- END KEYWORD: BuiltIn.Run Keyword And Ignore Error (2.22983 s)
+2026-02-14 11:17:37.917774 - INFO - +-- END TEARDOWN: Login.Close Browser If Open (2.22983 s)
+------------------------------------------------------------------------------
+2026-02-14 11:17:37.917774 - INFO - +- END TEST: Remove One Item From Cart (4.71215 s)
+------------------------------------------------------------------------------
+2026-02-14 11:17:37.917774 - INFO - +- START TEST: Add And Remove All Items
+------------------------------------------------------------------------------
+2026-02-14 11:17:37.917774 - INFO - +-- START KEYWORD: SeleniumLibrary.Open Browser [ ${URL} | chrome | options=add_argument("--incognito") ]
+2026-02-14 11:17:37.917774 - INFO - Opening browser 'chrome' to base url 'https://www.saucedemo.com/'.
+2026-02-14 11:17:39.360878 - DEBUG - Opened browser with session id b599aa5b406921df7ededcedf81724a5.
+2026-02-14 11:17:39.360878 - INFO - +-- END KEYWORD: SeleniumLibrary.Open Browser (1.443104 s)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2026-02-14 11:17:39.360878 - INFO - +-- START KEYWORD: Login.Login With Credentials [ ${USER_NAME} | ${USER_PWD} ]
+2026-02-14 11:17:39.360878 - INFO - +--- START KEYWORD: Login.Enter Username [ ${username} ]
+2026-02-14 11:17:39.360878 - INFO - +---- START KEYWORD: SeleniumLibrary.Wait Until Element Is Visible [ ${USERNAME_INPUT} | timeout=10s ]
+2026-02-14 11:17:39.417194 - INFO - +---- END KEYWORD: SeleniumLibrary.Wait Until Element Is Visible (0.056316 s)
+2026-02-14 11:17:39.417194 - INFO - +---- START KEYWORD: SeleniumLibrary.Input Text [ ${USERNAME_INPUT} | ${username} ]
+2026-02-14 11:17:39.417194 - INFO - Typing text 'standard_user' into text field 'id=user-name'.
+2026-02-14 11:17:39.609959 - INFO - +---- END KEYWORD: SeleniumLibrary.Input Text (0.192765 s)
+2026-02-14 11:17:39.610772 - INFO - +--- END KEYWORD: Login.Enter Username (0.249894 s)
+2026-02-14 11:17:39.611089 - INFO - +--- START KEYWORD: Login.Enter Password [ ${password} ]
+2026-02-14 11:17:39.612123 - INFO - +---- START KEYWORD: SeleniumLibrary.Input Text [ ${PASSWORD_INPUT} | ${password} ]
+2026-02-14 11:17:39.612123 - INFO - Typing text 'secret_sauce' into text field 'id=password'.
+2026-02-14 11:17:39.729100 - INFO - +---- END KEYWORD: SeleniumLibrary.Input Text (0.116977 s)
+2026-02-14 11:17:39.729100 - INFO - +--- END KEYWORD: Login.Enter Password (0.118011 s)
+2026-02-14 11:17:39.729100 - INFO - +--- START KEYWORD: Login.Click Login Button [ ]
+2026-02-14 11:17:39.729100 - INFO - +---- START KEYWORD: SeleniumLibrary.Click Button [ ${LOGIN_BUTTON} ]
+2026-02-14 11:17:39.729100 - INFO - Clicking button 'id=login-button'.
+2026-02-14 11:17:39.923394 - INFO - +---- END KEYWORD: SeleniumLibrary.Click Button (0.194294 s)
+2026-02-14 11:17:39.923394 - INFO - +--- END KEYWORD: Login.Click Login Button (0.194294 s)
+2026-02-14 11:17:39.923394 - INFO - +-- END KEYWORD: Login.Login With Credentials (0.562516 s)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2026-02-14 11:17:39.924374 - INFO - +-- START KEYWORD: Login.Inventory Should Be Visible [ ]
+2026-02-14 11:17:39.924374 - INFO - +--- START KEYWORD: SeleniumLibrary.Location Should Contain [ inventory.html ]
+2026-02-14 11:17:39.934641 - INFO - Current location contains 'inventory.html'.
+2026-02-14 11:17:39.934641 - INFO - +--- END KEYWORD: SeleniumLibrary.Location Should Contain (0.010267 s)
+2026-02-14 11:17:39.934641 - INFO - +-- END KEYWORD: Login.Inventory Should Be Visible (0.010267 s)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2026-02-14 11:17:39.934641 - INFO - +-- START FOR: ${item}    IN    @{ITEM_LIST}
+2026-02-14 11:17:39.935648 - INFO - +--- START ITERATION: ${item} = Sauce Labs Backpack
+2026-02-14 11:17:39.935648 - INFO - +---- START KEYWORD: inventory.Add Item To Cart [ ${item} ]
+2026-02-14 11:17:39.935648 - INFO - +----- START KEYWORD: BuiltIn.Set Variable [ xpath=//div[text()='${item_name}']/ancestor::div[@class='inventory_item']//button ]
+2026-02-14 11:17:39.936647 - INFO - ${locator} = xpath=//div[text()='Sauce Labs Backpack']/ancestor::div[@class='inventory_item']//button
+2026-02-14 11:17:39.936647 - INFO - +----- END KEYWORD: BuiltIn.Set Variable (0.000999 s)
+2026-02-14 11:17:39.936647 - INFO - +----- START KEYWORD: SeleniumLibrary.Wait Until Element Is Visible [ ${locator} | timeout=10s ]
+2026-02-14 11:17:39.967931 - INFO - +----- END KEYWORD: SeleniumLibrary.Wait Until Element Is Visible (0.031284 s)
+2026-02-14 11:17:39.967931 - INFO - +----- START KEYWORD: SeleniumLibrary.Wait Until Element Is Enabled [ ${locator} | timeout=10s ]
+2026-02-14 11:17:39.988880 - INFO - +----- END KEYWORD: SeleniumLibrary.Wait Until Element Is Enabled (0.020949 s)
+2026-02-14 11:17:39.988880 - INFO - +----- START KEYWORD: SeleniumLibrary.Get Text [ ${locator} ]
+2026-02-14 11:17:40.020290 - INFO - ${text} = Add to cart
+2026-02-14 11:17:40.020290 - INFO - +----- END KEYWORD: SeleniumLibrary.Get Text (0.03141 s)
+2026-02-14 11:17:40.020290 - INFO - +----- START KEYWORD: String.Strip String [ ${text} ]
+2026-02-14 11:17:40.020290 - INFO - ${text} = Add to cart
+2026-02-14 11:17:40.020290 - INFO - +----- END KEYWORD: String.Strip String (0.0 s)
+2026-02-14 11:17:40.020290 - INFO - +----- START KEYWORD: BuiltIn.Log To Console [ Valeur du bouton: "${text}" ]
+2026-02-14 11:17:40.020290 - INFO - +----- END KEYWORD: BuiltIn.Log To Console (0.0 s)
+2026-02-14 11:17:40.020290 - INFO - +----- START KEYWORD: BuiltIn.Should Be Equal [ ${text} | Add to cart | Bouton inattendu : ${text} ]
+2026-02-14 11:17:40.020290 - DEBUG - Argument types are:
+<class 'str'>
+<class 'str'>
+2026-02-14 11:17:40.020290 - INFO - +----- END KEYWORD: BuiltIn.Should Be Equal (0.0 s)
+2026-02-14 11:17:40.020290 - INFO - +----- START KEYWORD: SeleniumLibrary.Click Element [ ${locator} ]
+2026-02-14 11:17:40.020290 - INFO - Clicking element 'xpath=//div[text()='Sauce Labs Backpack']/ancestor::div[@class='inventory_item']//button'.
+2026-02-14 11:17:40.119913 - INFO - +----- END KEYWORD: SeleniumLibrary.Click Element (0.099623 s)
+2026-02-14 11:17:40.119913 - INFO - +----- START KEYWORD: BuiltIn.Set Variable [ xpath=//div[text()='${item_name}']/ancestor::div[@class='inventory_item']//button ]
+2026-02-14 11:17:40.119913 - INFO - ${locator} = xpath=//div[text()='Sauce Labs Backpack']/ancestor::div[@class='inventory_item']//button
+2026-02-14 11:17:40.119913 - INFO - +----- END KEYWORD: BuiltIn.Set Variable (0.0 s)
+2026-02-14 11:17:40.119913 - INFO - +----- START KEYWORD: SeleniumLibrary.Wait Until Element Is Visible [ ${locator} | timeout=10s ]
+2026-02-14 11:17:40.142682 - INFO - +----- END KEYWORD: SeleniumLibrary.Wait Until Element Is Visible (0.022769 s)
+2026-02-14 11:17:40.142682 - INFO - +----- START KEYWORD: SeleniumLibrary.Wait Until Element Is Enabled [ ${locator} | timeout=10s ]
+2026-02-14 11:17:40.166801 - INFO - +----- END KEYWORD: SeleniumLibrary.Wait Until Element Is Enabled (0.024119 s)
+2026-02-14 11:17:40.166801 - INFO - +----- START KEYWORD: SeleniumLibrary.Get Text [ ${locator} ]
+2026-02-14 11:17:40.205077 - INFO - ${text} = Remove
+2026-02-14 11:17:40.205077 - INFO - +----- END KEYWORD: SeleniumLibrary.Get Text (0.038276 s)
+2026-02-14 11:17:40.205077 - INFO - +----- START KEYWORD: String.Strip String [ ${text} ]
+2026-02-14 11:17:40.205077 - INFO - ${text} = Remove
+2026-02-14 11:17:40.205077 - INFO - +----- END KEYWORD: String.Strip String (0.0 s)
+2026-02-14 11:17:40.205077 - INFO - +----- START KEYWORD: BuiltIn.Log To Console [ Valeur du bouton: "${text}" ]
+2026-02-14 11:17:40.205077 - INFO - +----- END KEYWORD: BuiltIn.Log To Console (0.0 s)
+2026-02-14 11:17:40.205077 - INFO - +----- START KEYWORD: BuiltIn.Should Be Equal [ ${text} | Remove | Bouton inattendu : ${text} ]
+2026-02-14 11:17:40.205077 - DEBUG - Argument types are:
+<class 'str'>
+<class 'str'>
+2026-02-14 11:17:40.205077 - INFO - +----- END KEYWORD: BuiltIn.Should Be Equal (0.0 s)
+2026-02-14 11:17:40.205077 - INFO - +---- END KEYWORD: inventory.Add Item To Cart (0.269429 s)
+2026-02-14 11:17:40.205077 - INFO - +--- END ITERATION: ${item} = Sauce Labs Backpack (0.269429 s)
+2026-02-14 11:17:40.205077 - INFO - +--- START ITERATION: ${item} = Sauce Labs Bike Light
+2026-02-14 11:17:40.205077 - INFO - +---- START KEYWORD: inventory.Add Item To Cart [ ${item} ]
+2026-02-14 11:17:40.205077 - INFO - +----- START KEYWORD: BuiltIn.Set Variable [ xpath=//div[text()='${item_name}']/ancestor::div[@class='inventory_item']//button ]
+2026-02-14 11:17:40.205077 - INFO - ${locator} = xpath=//div[text()='Sauce Labs Bike Light']/ancestor::div[@class='inventory_item']//button
+2026-02-14 11:17:40.205077 - INFO - +----- END KEYWORD: BuiltIn.Set Variable (0.0 s)
+2026-02-14 11:17:40.205077 - INFO - +----- START KEYWORD: SeleniumLibrary.Wait Until Element Is Visible [ ${locator} | timeout=10s ]
+2026-02-14 11:17:40.220836 - INFO - +----- END KEYWORD: SeleniumLibrary.Wait Until Element Is Visible (0.015759 s)
+2026-02-14 11:17:40.220836 - INFO - +----- START KEYWORD: SeleniumLibrary.Wait Until Element Is Enabled [ ${locator} | timeout=10s ]
+2026-02-14 11:17:40.252419 - INFO - +----- END KEYWORD: SeleniumLibrary.Wait Until Element Is Enabled (0.031583 s)
+2026-02-14 11:17:40.252419 - INFO - +----- START KEYWORD: SeleniumLibrary.Get Text [ ${locator} ]
+2026-02-14 11:17:40.268185 - INFO - ${text} = Add to cart
+2026-02-14 11:17:40.268185 - INFO - +----- END KEYWORD: SeleniumLibrary.Get Text (0.015766 s)
+2026-02-14 11:17:40.268185 - INFO - +----- START KEYWORD: String.Strip String [ ${text} ]
+2026-02-14 11:17:40.268185 - INFO - ${text} = Add to cart
+2026-02-14 11:17:40.268185 - INFO - +----- END KEYWORD: String.Strip String (0.0 s)
+2026-02-14 11:17:40.268185 - INFO - +----- START KEYWORD: BuiltIn.Log To Console [ Valeur du bouton: "${text}" ]
+2026-02-14 11:17:40.268185 - INFO - +----- END KEYWORD: BuiltIn.Log To Console (0.0 s)
+2026-02-14 11:17:40.268185 - INFO - +----- START KEYWORD: BuiltIn.Should Be Equal [ ${text} | Add to cart | Bouton inattendu : ${text} ]
+2026-02-14 11:17:40.268185 - DEBUG - Argument types are:
+<class 'str'>
+<class 'str'>
+2026-02-14 11:17:40.268185 - INFO - +----- END KEYWORD: BuiltIn.Should Be Equal (0.0 s)
+2026-02-14 11:17:40.268185 - INFO - +----- START KEYWORD: SeleniumLibrary.Click Element [ ${locator} ]
+2026-02-14 11:17:40.268185 - INFO - Clicking element 'xpath=//div[text()='Sauce Labs Bike Light']/ancestor::div[@class='inventory_item']//button'.
+2026-02-14 11:17:40.368073 - INFO - +----- END KEYWORD: SeleniumLibrary.Click Element (0.099888 s)
+2026-02-14 11:17:40.368073 - INFO - +----- START KEYWORD: BuiltIn.Set Variable [ xpath=//div[text()='${item_name}']/ancestor::div[@class='inventory_item']//button ]
+2026-02-14 11:17:40.368073 - INFO - ${locator} = xpath=//div[text()='Sauce Labs Bike Light']/ancestor::div[@class='inventory_item']//button
+2026-02-14 11:17:40.368073 - INFO - +----- END KEYWORD: BuiltIn.Set Variable (0.0 s)
+2026-02-14 11:17:40.368073 - INFO - +----- START KEYWORD: SeleniumLibrary.Wait Until Element Is Visible [ ${locator} | timeout=10s ]
+2026-02-14 11:17:40.390343 - INFO - +----- END KEYWORD: SeleniumLibrary.Wait Until Element Is Visible (0.02227 s)
+2026-02-14 11:17:40.390343 - INFO - +----- START KEYWORD: SeleniumLibrary.Wait Until Element Is Enabled [ ${locator} | timeout=10s ]
+2026-02-14 11:17:40.406695 - INFO - +----- END KEYWORD: SeleniumLibrary.Wait Until Element Is Enabled (0.016352 s)
+2026-02-14 11:17:40.406695 - INFO - +----- START KEYWORD: SeleniumLibrary.Get Text [ ${locator} ]
+2026-02-14 11:17:40.423327 - INFO - ${text} = Remove
+2026-02-14 11:17:40.423327 - INFO - +----- END KEYWORD: SeleniumLibrary.Get Text (0.016632 s)
+2026-02-14 11:17:40.423327 - INFO - +----- START KEYWORD: String.Strip String [ ${text} ]
+2026-02-14 11:17:40.423327 - INFO - ${text} = Remove
+2026-02-14 11:17:40.423327 - INFO - +----- END KEYWORD: String.Strip String (0.0 s)
+2026-02-14 11:17:40.423327 - INFO - +----- START KEYWORD: BuiltIn.Log To Console [ Valeur du bouton: "${text}" ]
+2026-02-14 11:17:40.423327 - INFO - +----- END KEYWORD: BuiltIn.Log To Console (0.0 s)
+2026-02-14 11:17:40.423327 - INFO - +----- START KEYWORD: BuiltIn.Should Be Equal [ ${text} | Remove | Bouton inattendu : ${text} ]
+2026-02-14 11:17:40.423327 - DEBUG - Argument types are:
+<class 'str'>
+<class 'str'>
+2026-02-14 11:17:40.423327 - INFO - +----- END KEYWORD: BuiltIn.Should Be Equal (0.0 s)
+2026-02-14 11:17:40.423327 - INFO - +---- END KEYWORD: inventory.Add Item To Cart (0.21825 s)
+2026-02-14 11:17:40.423327 - INFO - +--- END ITERATION: ${item} = Sauce Labs Bike Light (0.21825 s)
+2026-02-14 11:17:40.423327 - INFO - +--- START ITERATION: ${item} = Sauce Labs Bolt T-Shirt
+2026-02-14 11:17:40.423327 - INFO - +---- START KEYWORD: inventory.Add Item To Cart [ ${item} ]
+2026-02-14 11:17:40.423327 - INFO - +----- START KEYWORD: BuiltIn.Set Variable [ xpath=//div[text()='${item_name}']/ancestor::div[@class='inventory_item']//button ]
+2026-02-14 11:17:40.423327 - INFO - ${locator} = xpath=//div[text()='Sauce Labs Bolt T-Shirt']/ancestor::div[@class='inventory_item']//button
+2026-02-14 11:17:40.423327 - INFO - +----- END KEYWORD: BuiltIn.Set Variable (0.0 s)
+2026-02-14 11:17:40.423327 - INFO - +----- START KEYWORD: SeleniumLibrary.Wait Until Element Is Visible [ ${locator} | timeout=10s ]
+2026-02-14 11:17:40.455525 - INFO - +----- END KEYWORD: SeleniumLibrary.Wait Until Element Is Visible (0.032198 s)
+2026-02-14 11:17:40.455525 - INFO - +----- START KEYWORD: SeleniumLibrary.Wait Until Element Is Enabled [ ${locator} | timeout=10s ]
+2026-02-14 11:17:40.487085 - INFO - +----- END KEYWORD: SeleniumLibrary.Wait Until Element Is Enabled (0.03156 s)
+2026-02-14 11:17:40.487085 - INFO - +----- START KEYWORD: SeleniumLibrary.Get Text [ ${locator} ]
+2026-02-14 11:17:40.505611 - INFO - ${text} = Add to cart
+2026-02-14 11:17:40.505611 - INFO - +----- END KEYWORD: SeleniumLibrary.Get Text (0.018526 s)
+2026-02-14 11:17:40.505611 - INFO - +----- START KEYWORD: String.Strip String [ ${text} ]
+2026-02-14 11:17:40.505611 - INFO - ${text} = Add to cart
+2026-02-14 11:17:40.505611 - INFO - +----- END KEYWORD: String.Strip String (0.0 s)
+2026-02-14 11:17:40.505611 - INFO - +----- START KEYWORD: BuiltIn.Log To Console [ Valeur du bouton: "${text}" ]
+2026-02-14 11:17:40.505611 - INFO - +----- END KEYWORD: BuiltIn.Log To Console (0.0 s)
+2026-02-14 11:17:40.505611 - INFO - +----- START KEYWORD: BuiltIn.Should Be Equal [ ${text} | Add to cart | Bouton inattendu : ${text} ]
+2026-02-14 11:17:40.505611 - DEBUG - Argument types are:
+<class 'str'>
+<class 'str'>
+2026-02-14 11:17:40.505611 - INFO - +----- END KEYWORD: BuiltIn.Should Be Equal (0.0 s)
+2026-02-14 11:17:40.505611 - INFO - +----- START KEYWORD: SeleniumLibrary.Click Element [ ${locator} ]
+2026-02-14 11:17:40.505611 - INFO - Clicking element 'xpath=//div[text()='Sauce Labs Bolt T-Shirt']/ancestor::div[@class='inventory_item']//button'.
+2026-02-14 11:17:40.583758 - INFO - +----- END KEYWORD: SeleniumLibrary.Click Element (0.078147 s)
+2026-02-14 11:17:40.583758 - INFO - +----- START KEYWORD: BuiltIn.Set Variable [ xpath=//div[text()='${item_name}']/ancestor::div[@class='inventory_item']//button ]
+2026-02-14 11:17:40.584758 - INFO - ${locator} = xpath=//div[text()='Sauce Labs Bolt T-Shirt']/ancestor::div[@class='inventory_item']//button
+2026-02-14 11:17:40.584758 - INFO - +----- END KEYWORD: BuiltIn.Set Variable (0.001 s)
+2026-02-14 11:17:40.584758 - INFO - +----- START KEYWORD: SeleniumLibrary.Wait Until Element Is Visible [ ${locator} | timeout=10s ]
+2026-02-14 11:17:40.590147 - INFO - +----- END KEYWORD: SeleniumLibrary.Wait Until Element Is Visible (0.005389 s)
+2026-02-14 11:17:40.590147 - INFO - +----- START KEYWORD: SeleniumLibrary.Wait Until Element Is Enabled [ ${locator} | timeout=10s ]
+2026-02-14 11:17:40.631156 - INFO - +----- END KEYWORD: SeleniumLibrary.Wait Until Element Is Enabled (0.041009 s)
+2026-02-14 11:17:40.631156 - INFO - +----- START KEYWORD: SeleniumLibrary.Get Text [ ${locator} ]
+2026-02-14 11:17:40.640125 - INFO - ${text} = Remove
+2026-02-14 11:17:40.640125 - INFO - +----- END KEYWORD: SeleniumLibrary.Get Text (0.008969 s)
+2026-02-14 11:17:40.640125 - INFO - +----- START KEYWORD: String.Strip String [ ${text} ]
+2026-02-14 11:17:40.640125 - INFO - ${text} = Remove
+2026-02-14 11:17:40.640125 - INFO - +----- END KEYWORD: String.Strip String (0.0 s)
+2026-02-14 11:17:40.640125 - INFO - +----- START KEYWORD: BuiltIn.Log To Console [ Valeur du bouton: "${text}" ]
+2026-02-14 11:17:40.640125 - INFO - +----- END KEYWORD: BuiltIn.Log To Console (0.0 s)
+2026-02-14 11:17:40.640125 - INFO - +----- START KEYWORD: BuiltIn.Should Be Equal [ ${text} | Remove | Bouton inattendu : ${text} ]
+2026-02-14 11:17:40.640125 - DEBUG - Argument types are:
+<class 'str'>
+<class 'str'>
+2026-02-14 11:17:40.640125 - INFO - +----- END KEYWORD: BuiltIn.Should Be Equal (0.0 s)
+2026-02-14 11:17:40.640125 - INFO - +---- END KEYWORD: inventory.Add Item To Cart (0.216798 s)
+2026-02-14 11:17:40.640125 - INFO - +--- END ITERATION: ${item} = Sauce Labs Bolt T-Shirt (0.216798 s)
+2026-02-14 11:17:40.640125 - INFO - +--- START ITERATION: ${item} = Sauce Labs Fleece Jacket
+2026-02-14 11:17:40.640125 - INFO - +---- START KEYWORD: inventory.Add Item To Cart [ ${item} ]
+2026-02-14 11:17:40.640125 - INFO - +----- START KEYWORD: BuiltIn.Set Variable [ xpath=//div[text()='${item_name}']/ancestor::div[@class='inventory_item']//button ]
+2026-02-14 11:17:40.640125 - INFO - ${locator} = xpath=//div[text()='Sauce Labs Fleece Jacket']/ancestor::div[@class='inventory_item']//button
+2026-02-14 11:17:40.640125 - INFO - +----- END KEYWORD: BuiltIn.Set Variable (0.0 s)
+2026-02-14 11:17:40.640125 - INFO - +----- START KEYWORD: SeleniumLibrary.Wait Until Element Is Visible [ ${locator} | timeout=10s ]
+2026-02-14 11:17:40.671580 - INFO - +----- END KEYWORD: SeleniumLibrary.Wait Until Element Is Visible (0.031455 s)
+2026-02-14 11:17:40.671580 - INFO - +----- START KEYWORD: SeleniumLibrary.Wait Until Element Is Enabled [ ${locator} | timeout=10s ]
+2026-02-14 11:17:40.705862 - INFO - +----- END KEYWORD: SeleniumLibrary.Wait Until Element Is Enabled (0.034282 s)
+2026-02-14 11:17:40.705862 - INFO - +----- START KEYWORD: SeleniumLibrary.Get Text [ ${locator} ]
+2026-02-14 11:17:40.718598 - INFO - ${text} = Add to cart
+2026-02-14 11:17:40.718598 - INFO - +----- END KEYWORD: SeleniumLibrary.Get Text (0.012736 s)
+2026-02-14 11:17:40.718598 - INFO - +----- START KEYWORD: String.Strip String [ ${text} ]
+2026-02-14 11:17:40.718598 - INFO - ${text} = Add to cart
+2026-02-14 11:17:40.718598 - INFO - +----- END KEYWORD: String.Strip String (0.0 s)
+2026-02-14 11:17:40.718598 - INFO - +----- START KEYWORD: BuiltIn.Log To Console [ Valeur du bouton: "${text}" ]
+2026-02-14 11:17:40.718598 - INFO - +----- END KEYWORD: BuiltIn.Log To Console (0.0 s)
+2026-02-14 11:17:40.718598 - INFO - +----- START KEYWORD: BuiltIn.Should Be Equal [ ${text} | Add to cart | Bouton inattendu : ${text} ]
+2026-02-14 11:17:40.718598 - DEBUG - Argument types are:
+<class 'str'>
+<class 'str'>
+2026-02-14 11:17:40.718598 - INFO - +----- END KEYWORD: BuiltIn.Should Be Equal (0.0 s)
+2026-02-14 11:17:40.718598 - INFO - +----- START KEYWORD: SeleniumLibrary.Click Element [ ${locator} ]
+2026-02-14 11:17:40.718598 - INFO - Clicking element 'xpath=//div[text()='Sauce Labs Fleece Jacket']/ancestor::div[@class='inventory_item']//button'.
+2026-02-14 11:17:40.845376 - INFO - +----- END KEYWORD: SeleniumLibrary.Click Element (0.126778 s)
+2026-02-14 11:17:40.845376 - INFO - +----- START KEYWORD: BuiltIn.Set Variable [ xpath=//div[text()='${item_name}']/ancestor::div[@class='inventory_item']//button ]
+2026-02-14 11:17:40.845376 - INFO - ${locator} = xpath=//div[text()='Sauce Labs Fleece Jacket']/ancestor::div[@class='inventory_item']//button
+2026-02-14 11:17:40.845376 - INFO - +----- END KEYWORD: BuiltIn.Set Variable (0.0 s)
+2026-02-14 11:17:40.845376 - INFO - +----- START KEYWORD: SeleniumLibrary.Wait Until Element Is Visible [ ${locator} | timeout=10s ]
+2026-02-14 11:17:40.866600 - INFO - +----- END KEYWORD: SeleniumLibrary.Wait Until Element Is Visible (0.021224 s)
+2026-02-14 11:17:40.866600 - INFO - +----- START KEYWORD: SeleniumLibrary.Wait Until Element Is Enabled [ ${locator} | timeout=10s ]
+2026-02-14 11:17:40.889634 - INFO - +----- END KEYWORD: SeleniumLibrary.Wait Until Element Is Enabled (0.023034 s)
+2026-02-14 11:17:40.889634 - INFO - +----- START KEYWORD: SeleniumLibrary.Get Text [ ${locator} ]
+2026-02-14 11:17:40.905964 - INFO - ${text} = Remove
+2026-02-14 11:17:40.905964 - INFO - +----- END KEYWORD: SeleniumLibrary.Get Text (0.01633 s)
+2026-02-14 11:17:40.905964 - INFO - +----- START KEYWORD: String.Strip String [ ${text} ]
+2026-02-14 11:17:40.905964 - INFO - ${text} = Remove
+2026-02-14 11:17:40.905964 - INFO - +----- END KEYWORD: String.Strip String (0.0 s)
+2026-02-14 11:17:40.905964 - INFO - +----- START KEYWORD: BuiltIn.Log To Console [ Valeur du bouton: "${text}" ]
+2026-02-14 11:17:40.905964 - INFO - +----- END KEYWORD: BuiltIn.Log To Console (0.0 s)
+2026-02-14 11:17:40.905964 - INFO - +----- START KEYWORD: BuiltIn.Should Be Equal [ ${text} | Remove | Bouton inattendu : ${text} ]
+2026-02-14 11:17:40.905964 - DEBUG - Argument types are:
+<class 'str'>
+<class 'str'>
+2026-02-14 11:17:40.905964 - INFO - +----- END KEYWORD: BuiltIn.Should Be Equal (0.0 s)
+2026-02-14 11:17:40.905964 - INFO - +---- END KEYWORD: inventory.Add Item To Cart (0.265839 s)
+2026-02-14 11:17:40.905964 - INFO - +--- END ITERATION: ${item} = Sauce Labs Fleece Jacket (0.265839 s)
+2026-02-14 11:17:40.905964 - INFO - +--- START ITERATION: ${item} = Sauce Labs Onesie
+2026-02-14 11:17:40.905964 - INFO - +---- START KEYWORD: inventory.Add Item To Cart [ ${item} ]
+2026-02-14 11:17:40.905964 - INFO - +----- START KEYWORD: BuiltIn.Set Variable [ xpath=//div[text()='${item_name}']/ancestor::div[@class='inventory_item']//button ]
+2026-02-14 11:17:40.905964 - INFO - ${locator} = xpath=//div[text()='Sauce Labs Onesie']/ancestor::div[@class='inventory_item']//button
+2026-02-14 11:17:40.905964 - INFO - +----- END KEYWORD: BuiltIn.Set Variable (0.0 s)
+2026-02-14 11:17:40.918379 - INFO - +----- START KEYWORD: SeleniumLibrary.Wait Until Element Is Visible [ ${locator} | timeout=10s ]
+2026-02-14 11:17:40.936829 - INFO - +----- END KEYWORD: SeleniumLibrary.Wait Until Element Is Visible (0.01845 s)
+2026-02-14 11:17:40.936829 - INFO - +----- START KEYWORD: SeleniumLibrary.Wait Until Element Is Enabled [ ${locator} | timeout=10s ]
+2026-02-14 11:17:40.968384 - INFO - +----- END KEYWORD: SeleniumLibrary.Wait Until Element Is Enabled (0.031555 s)
+2026-02-14 11:17:40.968384 - INFO - +----- START KEYWORD: SeleniumLibrary.Get Text [ ${locator} ]
+2026-02-14 11:17:40.989227 - INFO - ${text} = Add to cart
+2026-02-14 11:17:40.989227 - INFO - +----- END KEYWORD: SeleniumLibrary.Get Text (0.020843 s)
+2026-02-14 11:17:40.989227 - INFO - +----- START KEYWORD: String.Strip String [ ${text} ]
+2026-02-14 11:17:40.989227 - INFO - ${text} = Add to cart
+2026-02-14 11:17:40.989227 - INFO - +----- END KEYWORD: String.Strip String (0.0 s)
+2026-02-14 11:17:40.989227 - INFO - +----- START KEYWORD: BuiltIn.Log To Console [ Valeur du bouton: "${text}" ]
+2026-02-14 11:17:40.989227 - INFO - +----- END KEYWORD: BuiltIn.Log To Console (0.0 s)
+2026-02-14 11:17:40.989227 - INFO - +----- START KEYWORD: BuiltIn.Should Be Equal [ ${text} | Add to cart | Bouton inattendu : ${text} ]
+2026-02-14 11:17:40.989227 - DEBUG - Argument types are:
+<class 'str'>
+<class 'str'>
+2026-02-14 11:17:40.989227 - INFO - +----- END KEYWORD: BuiltIn.Should Be Equal (0.0 s)
+2026-02-14 11:17:40.989227 - INFO - +----- START KEYWORD: SeleniumLibrary.Click Element [ ${locator} ]
+2026-02-14 11:17:40.989227 - INFO - Clicking element 'xpath=//div[text()='Sauce Labs Onesie']/ancestor::div[@class='inventory_item']//button'.
+2026-02-14 11:17:41.075537 - INFO - +----- END KEYWORD: SeleniumLibrary.Click Element (0.08631 s)
+2026-02-14 11:17:41.075537 - INFO - +----- START KEYWORD: BuiltIn.Set Variable [ xpath=//div[text()='${item_name}']/ancestor::div[@class='inventory_item']//button ]
+2026-02-14 11:17:41.075537 - INFO - ${locator} = xpath=//div[text()='Sauce Labs Onesie']/ancestor::div[@class='inventory_item']//button
+2026-02-14 11:17:41.075537 - INFO - +----- END KEYWORD: BuiltIn.Set Variable (0.0 s)
+2026-02-14 11:17:41.075537 - INFO - +----- START KEYWORD: SeleniumLibrary.Wait Until Element Is Visible [ ${locator} | timeout=10s ]
+2026-02-14 11:17:41.097862 - INFO - +----- END KEYWORD: SeleniumLibrary.Wait Until Element Is Visible (0.022325 s)
+2026-02-14 11:17:41.097862 - INFO - +----- START KEYWORD: SeleniumLibrary.Wait Until Element Is Enabled [ ${locator} | timeout=10s ]
+2026-02-14 11:17:41.122239 - INFO - +----- END KEYWORD: SeleniumLibrary.Wait Until Element Is Enabled (0.024377 s)
+2026-02-14 11:17:41.122239 - INFO - +----- START KEYWORD: SeleniumLibrary.Get Text [ ${locator} ]
+2026-02-14 11:17:41.137877 - INFO - ${text} = Remove
+2026-02-14 11:17:41.137877 - INFO - +----- END KEYWORD: SeleniumLibrary.Get Text (0.015638 s)
+2026-02-14 11:17:41.137877 - INFO - +----- START KEYWORD: String.Strip String [ ${text} ]
+2026-02-14 11:17:41.137877 - INFO - ${text} = Remove
+2026-02-14 11:17:41.137877 - INFO - +----- END KEYWORD: String.Strip String (0.0 s)
+2026-02-14 11:17:41.137877 - INFO - +----- START KEYWORD: BuiltIn.Log To Console [ Valeur du bouton: "${text}" ]
+2026-02-14 11:17:41.137877 - INFO - +----- END KEYWORD: BuiltIn.Log To Console (0.0 s)
+2026-02-14 11:17:41.137877 - INFO - +----- START KEYWORD: BuiltIn.Should Be Equal [ ${text} | Remove | Bouton inattendu : ${text} ]
+2026-02-14 11:17:41.137877 - DEBUG - Argument types are:
+<class 'str'>
+<class 'str'>
+2026-02-14 11:17:41.137877 - INFO - +----- END KEYWORD: BuiltIn.Should Be Equal (0.0 s)
+2026-02-14 11:17:41.137877 - INFO - +---- END KEYWORD: inventory.Add Item To Cart (0.231913 s)
+2026-02-14 11:17:41.137877 - INFO - +--- END ITERATION: ${item} = Sauce Labs Onesie (0.231913 s)
+2026-02-14 11:17:41.137877 - INFO - +--- START ITERATION: ${item} = Test.allTheThings() T-Shirt (Red)
+2026-02-14 11:17:41.137877 - INFO - +---- START KEYWORD: inventory.Add Item To Cart [ ${item} ]
+2026-02-14 11:17:41.137877 - INFO - +----- START KEYWORD: BuiltIn.Set Variable [ xpath=//div[text()='${item_name}']/ancestor::div[@class='inventory_item']//button ]
+2026-02-14 11:17:41.137877 - INFO - ${locator} = xpath=//div[text()='Test.allTheThings() T-Shirt (Red)']/ancestor::div[@class='inventory_item']//button
+2026-02-14 11:17:41.137877 - INFO - +----- END KEYWORD: BuiltIn.Set Variable (0.0 s)
+2026-02-14 11:17:41.137877 - INFO - +----- START KEYWORD: SeleniumLibrary.Wait Until Element Is Visible [ ${locator} | timeout=10s ]
+2026-02-14 11:17:41.171381 - INFO - +----- END KEYWORD: SeleniumLibrary.Wait Until Element Is Visible (0.033504 s)
+2026-02-14 11:17:41.171381 - INFO - +----- START KEYWORD: SeleniumLibrary.Wait Until Element Is Enabled [ ${locator} | timeout=10s ]
+2026-02-14 11:17:41.185134 - INFO - +----- END KEYWORD: SeleniumLibrary.Wait Until Element Is Enabled (0.013753 s)
+2026-02-14 11:17:41.185134 - INFO - +----- START KEYWORD: SeleniumLibrary.Get Text [ ${locator} ]
+2026-02-14 11:17:41.216731 - INFO - ${text} = Add to cart
+2026-02-14 11:17:41.216731 - INFO - +----- END KEYWORD: SeleniumLibrary.Get Text (0.031597 s)
+2026-02-14 11:17:41.216731 - INFO - +----- START KEYWORD: String.Strip String [ ${text} ]
+2026-02-14 11:17:41.216731 - INFO - ${text} = Add to cart
+2026-02-14 11:17:41.216731 - INFO - +----- END KEYWORD: String.Strip String (0.0 s)
+2026-02-14 11:17:41.216731 - INFO - +----- START KEYWORD: BuiltIn.Log To Console [ Valeur du bouton: "${text}" ]
+2026-02-14 11:17:41.216731 - INFO - +----- END KEYWORD: BuiltIn.Log To Console (0.0 s)
+2026-02-14 11:17:41.216731 - INFO - +----- START KEYWORD: BuiltIn.Should Be Equal [ ${text} | Add to cart | Bouton inattendu : ${text} ]
+2026-02-14 11:17:41.216731 - DEBUG - Argument types are:
+<class 'str'>
+<class 'str'>
+2026-02-14 11:17:41.216731 - INFO - +----- END KEYWORD: BuiltIn.Should Be Equal (0.0 s)
+2026-02-14 11:17:41.216731 - INFO - +----- START KEYWORD: SeleniumLibrary.Click Element [ ${locator} ]
+2026-02-14 11:17:41.216731 - INFO - Clicking element 'xpath=//div[text()='Test.allTheThings() T-Shirt (Red)']/ancestor::div[@class='inventory_item']//button'.
+2026-02-14 11:17:41.299528 - INFO - +----- END KEYWORD: SeleniumLibrary.Click Element (0.082797 s)
+2026-02-14 11:17:41.299528 - INFO - +----- START KEYWORD: BuiltIn.Set Variable [ xpath=//div[text()='${item_name}']/ancestor::div[@class='inventory_item']//button ]
+2026-02-14 11:17:41.300553 - INFO - ${locator} = xpath=//div[text()='Test.allTheThings() T-Shirt (Red)']/ancestor::div[@class='inventory_item']//button
+2026-02-14 11:17:41.300553 - INFO - +----- END KEYWORD: BuiltIn.Set Variable (0.001025 s)
+2026-02-14 11:17:41.300553 - INFO - +----- START KEYWORD: SeleniumLibrary.Wait Until Element Is Visible [ ${locator} | timeout=10s ]
+2026-02-14 11:17:41.309302 - INFO - +----- END KEYWORD: SeleniumLibrary.Wait Until Element Is Visible (0.008749 s)
+2026-02-14 11:17:41.309302 - INFO - +----- START KEYWORD: SeleniumLibrary.Wait Until Element Is Enabled [ ${locator} | timeout=10s ]
+2026-02-14 11:17:41.351100 - INFO - +----- END KEYWORD: SeleniumLibrary.Wait Until Element Is Enabled (0.041798 s)
+2026-02-14 11:17:41.351100 - INFO - +----- START KEYWORD: SeleniumLibrary.Get Text [ ${locator} ]
+2026-02-14 11:17:41.357100 - INFO - ${text} = Remove
+2026-02-14 11:17:41.357100 - INFO - +----- END KEYWORD: SeleniumLibrary.Get Text (0.006 s)
+2026-02-14 11:17:41.357100 - INFO - +----- START KEYWORD: String.Strip String [ ${text} ]
+2026-02-14 11:17:41.372844 - INFO - ${text} = Remove
+2026-02-14 11:17:41.372844 - INFO - +----- END KEYWORD: String.Strip String (0.015744 s)
+2026-02-14 11:17:41.372844 - INFO - +----- START KEYWORD: BuiltIn.Log To Console [ Valeur du bouton: "${text}" ]
+2026-02-14 11:17:41.372844 - INFO - +----- END KEYWORD: BuiltIn.Log To Console (0.0 s)
+2026-02-14 11:17:41.372844 - INFO - +----- START KEYWORD: BuiltIn.Should Be Equal [ ${text} | Remove | Bouton inattendu : ${text} ]
+2026-02-14 11:17:41.372844 - DEBUG - Argument types are:
+<class 'str'>
+<class 'str'>
+2026-02-14 11:17:41.372844 - INFO - +----- END KEYWORD: BuiltIn.Should Be Equal (0.0 s)
+2026-02-14 11:17:41.374723 - INFO - +---- END KEYWORD: inventory.Add Item To Cart (0.236846 s)
+2026-02-14 11:17:41.374723 - INFO - +--- END ITERATION: ${item} = Test.allTheThings() T-Shirt (Red) (0.236846 s)
+2026-02-14 11:17:41.374723 - INFO - +-- END FOR: ${item}    IN    @{ITEM_LIST} (1.440082 s)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2026-02-14 11:17:41.374723 - INFO - +-- START KEYWORD: inventory.Get Cart Badge [ ]
+2026-02-14 11:17:41.374723 - INFO - +--- START KEYWORD: BuiltIn.Run Keyword And Return Status [ Page Should Contain Element | ${SHOPPING_CART_BADGE} ]
+2026-02-14 11:17:41.374723 - INFO - +---- START KEYWORD: SeleniumLibrary.Page Should Contain Element [ ${SHOPPING_CART_BADGE} ]
+2026-02-14 11:17:41.388617 - INFO - Current page contains element 'css=.shopping_cart_badge'.
+2026-02-14 11:17:41.388617 - INFO - +---- END KEYWORD: SeleniumLibrary.Page Should Contain Element (0.013894 s)
+2026-02-14 11:17:41.388617 - INFO - ${exists} = True
+2026-02-14 11:17:41.388617 - INFO - +--- END KEYWORD: BuiltIn.Run Keyword And Return Status (0.013894 s)
+2026-02-14 11:17:41.388617 - INFO - +--- START IF/ELSE ROOT:
+2026-02-14 11:17:41.388617 - INFO - +---- START IF: not ${exists}
+2026-02-14 11:17:41.388617 - INFO - +----- START RETURN:
+2026-02-14 11:17:41.388617 - INFO - +----- END RETURN:  (0.0 s)
+2026-02-14 11:17:41.388617 - INFO - +---- END IF: not ${exists} (0.0 s)
+2026-02-14 11:17:41.388617 - INFO - +--- END IF/ELSE ROOT:  (0.0 s)
+2026-02-14 11:17:41.388617 - INFO - +--- START KEYWORD: SeleniumLibrary.Wait Until Element Is Visible [ ${SHOPPING_CART_BADGE} | timeout=10s ]
+2026-02-14 11:17:41.406054 - INFO - +--- END KEYWORD: SeleniumLibrary.Wait Until Element Is Visible (0.017437 s)
+2026-02-14 11:17:41.406054 - INFO - +--- START KEYWORD: SeleniumLibrary.Wait Until Element Is Enabled [ ${SHOPPING_CART_BADGE} | timeout=10s ]
+2026-02-14 11:17:41.435926 - INFO - +--- END KEYWORD: SeleniumLibrary.Wait Until Element Is Enabled (0.029872 s)
+2026-02-14 11:17:41.435926 - INFO - +--- START KEYWORD: SeleniumLibrary.Get Text [ ${SHOPPING_CART_BADGE} ]
+2026-02-14 11:17:41.451684 - INFO - ${text} = 6
+2026-02-14 11:17:41.451684 - INFO - +--- END KEYWORD: SeleniumLibrary.Get Text (0.015758 s)
+2026-02-14 11:17:41.451684 - INFO - +--- START KEYWORD: String.Strip String [ ${text} ]
+2026-02-14 11:17:41.451684 - INFO - ${text} = 6
+2026-02-14 11:17:41.451684 - INFO - +--- END KEYWORD: String.Strip String (0.0 s)
+2026-02-14 11:17:41.451684 - INFO - +--- START IF/ELSE ROOT:
+2026-02-14 11:17:41.451684 - INFO - +---- START IF: '${text}' == ''
+2026-02-14 11:17:41.451684 - INFO - +----- START RETURN:
+2026-02-14 11:17:41.451684 - INFO - +----- END RETURN:  (0.0 s)
+2026-02-14 11:17:41.451684 - INFO - +---- END IF: '${text}' == '' (0.0 s)
+2026-02-14 11:17:41.451684 - INFO - +--- END IF/ELSE ROOT:  (0.0 s)
+2026-02-14 11:17:41.451684 - INFO - +--- START KEYWORD: BuiltIn.Convert To Integer [ ${text} ]
+2026-02-14 11:17:41.467658 - DEBUG - Argument types are:
+<class 'str'>
+2026-02-14 11:17:41.467658 - INFO - ${nb_items} = 6
+2026-02-14 11:17:41.467658 - INFO - +--- END KEYWORD: BuiltIn.Convert To Integer (0.015974 s)
+2026-02-14 11:17:41.467658 - INFO - +--- START RETURN:
+2026-02-14 11:17:41.467658 - INFO - +--- END RETURN:  (0.0 s)
+2026-02-14 11:17:41.467658 - INFO - ${nb_items} = 6
+2026-02-14 11:17:41.467658 - INFO - +-- END KEYWORD: inventory.Get Cart Badge (0.092935 s)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2026-02-14 11:17:41.467658 - INFO - +-- START KEYWORD: BuiltIn.Should Be Equal As Integers [ ${nb_items} | 6 ]
+2026-02-14 11:17:41.467658 - INFO - Argument types are:
+<class 'int'>
+<class 'str'>
+2026-02-14 11:17:41.467658 - INFO - +-- END KEYWORD: BuiltIn.Should Be Equal As Integers (0.0 s)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2026-02-14 11:17:41.467658 - INFO - +-- START FOR: ${item}    IN    @{ITEM_LIST}
+2026-02-14 11:17:41.467658 - INFO - +--- START ITERATION: ${item} = Sauce Labs Backpack
+2026-02-14 11:17:41.467658 - INFO - +---- START KEYWORD: inventory.Remove Item From Cart [ ${item} ]
+2026-02-14 11:17:41.467658 - INFO - +----- START KEYWORD: BuiltIn.Set Variable [ xpath=//div[text()='${item_name}']/ancestor::div[@class='inventory_item']//button ]
+2026-02-14 11:17:41.467658 - INFO - ${locator} = xpath=//div[text()='Sauce Labs Backpack']/ancestor::div[@class='inventory_item']//button
+2026-02-14 11:17:41.467658 - INFO - +----- END KEYWORD: BuiltIn.Set Variable (0.0 s)
+2026-02-14 11:17:41.467658 - INFO - +----- START KEYWORD: SeleniumLibrary.Wait Until Element Is Visible [ ${locator} | timeout=10s ]
+2026-02-14 11:17:41.483331 - INFO - +----- END KEYWORD: SeleniumLibrary.Wait Until Element Is Visible (0.015673 s)
+2026-02-14 11:17:41.483331 - INFO - +----- START KEYWORD: SeleniumLibrary.Wait Until Element Is Enabled [ ${locator} | timeout=10s ]
+2026-02-14 11:17:41.506112 - INFO - +----- END KEYWORD: SeleniumLibrary.Wait Until Element Is Enabled (0.022781 s)
+2026-02-14 11:17:41.506112 - INFO - +----- START KEYWORD: SeleniumLibrary.Get Text [ ${locator} ]
+2026-02-14 11:17:41.530422 - INFO - ${text} = Remove
+2026-02-14 11:17:41.530422 - INFO - +----- END KEYWORD: SeleniumLibrary.Get Text (0.02431 s)
+2026-02-14 11:17:41.530422 - INFO - +----- START KEYWORD: BuiltIn.Should Be Equal [ ${text} | Remove | Bouton inattendu : ${text} ]
+2026-02-14 11:17:41.530422 - DEBUG - Argument types are:
+<class 'str'>
+<class 'str'>
+2026-02-14 11:17:41.530422 - INFO - +----- END KEYWORD: BuiltIn.Should Be Equal (0.0 s)
+2026-02-14 11:17:41.530422 - INFO - +----- START KEYWORD: SeleniumLibrary.Click Element [ ${locator} ]
+2026-02-14 11:17:41.530422 - INFO - Clicking element 'xpath=//div[text()='Sauce Labs Backpack']/ancestor::div[@class='inventory_item']//button'.
+2026-02-14 11:17:41.614824 - INFO - +----- END KEYWORD: SeleniumLibrary.Click Element (0.084402 s)
+2026-02-14 11:17:41.614824 - INFO - +----- START KEYWORD: BuiltIn.Set Variable [ xpath=//div[text()='${item_name}']/ancestor::div[@class='inventory_item']//button ]
+2026-02-14 11:17:41.614824 - INFO - ${locator} = xpath=//div[text()='Sauce Labs Backpack']/ancestor::div[@class='inventory_item']//button
+2026-02-14 11:17:41.614824 - INFO - +----- END KEYWORD: BuiltIn.Set Variable (0.0 s)
+2026-02-14 11:17:41.614824 - INFO - +----- START KEYWORD: SeleniumLibrary.Wait Until Element Is Visible [ ${locator} | timeout=10s ]
+2026-02-14 11:17:41.634109 - INFO - +----- END KEYWORD: SeleniumLibrary.Wait Until Element Is Visible (0.019285 s)
+2026-02-14 11:17:41.635113 - INFO - +----- START KEYWORD: SeleniumLibrary.Wait Until Element Is Enabled [ ${locator} | timeout=10s ]
+2026-02-14 11:17:41.657326 - INFO - +----- END KEYWORD: SeleniumLibrary.Wait Until Element Is Enabled (0.022213 s)
+2026-02-14 11:17:41.657326 - INFO - +----- START KEYWORD: SeleniumLibrary.Get Text [ ${locator} ]
+2026-02-14 11:17:41.672994 - INFO - ${text} = Add to cart
+2026-02-14 11:17:41.672994 - INFO - +----- END KEYWORD: SeleniumLibrary.Get Text (0.015668 s)
+2026-02-14 11:17:41.672994 - INFO - +----- START KEYWORD: BuiltIn.Should Be Equal [ ${text} | Add to cart | Bouton inattendu : ${text} ]
+2026-02-14 11:17:41.672994 - DEBUG - Argument types are:
+<class 'str'>
+<class 'str'>
+2026-02-14 11:17:41.672994 - INFO - +----- END KEYWORD: BuiltIn.Should Be Equal (0.0 s)
+2026-02-14 11:17:41.672994 - INFO - +---- END KEYWORD: inventory.Remove Item From Cart (0.205336 s)
+2026-02-14 11:17:41.672994 - INFO - +--- END ITERATION: ${item} = Sauce Labs Backpack (0.205336 s)
+2026-02-14 11:17:41.672994 - INFO - +--- START ITERATION: ${item} = Sauce Labs Bike Light
+2026-02-14 11:17:41.672994 - INFO - +---- START KEYWORD: inventory.Remove Item From Cart [ ${item} ]
+2026-02-14 11:17:41.672994 - INFO - +----- START KEYWORD: BuiltIn.Set Variable [ xpath=//div[text()='${item_name}']/ancestor::div[@class='inventory_item']//button ]
+2026-02-14 11:17:41.672994 - INFO - ${locator} = xpath=//div[text()='Sauce Labs Bike Light']/ancestor::div[@class='inventory_item']//button
+2026-02-14 11:17:41.672994 - INFO - +----- END KEYWORD: BuiltIn.Set Variable (0.0 s)
+2026-02-14 11:17:41.672994 - INFO - +----- START KEYWORD: SeleniumLibrary.Wait Until Element Is Visible [ ${locator} | timeout=10s ]
+2026-02-14 11:17:41.688941 - INFO - +----- END KEYWORD: SeleniumLibrary.Wait Until Element Is Visible (0.015947 s)
+2026-02-14 11:17:41.688941 - INFO - +----- START KEYWORD: SeleniumLibrary.Wait Until Element Is Enabled [ ${locator} | timeout=10s ]
+2026-02-14 11:17:41.720450 - INFO - +----- END KEYWORD: SeleniumLibrary.Wait Until Element Is Enabled (0.031509 s)
+2026-02-14 11:17:41.720450 - INFO - +----- START KEYWORD: SeleniumLibrary.Get Text [ ${locator} ]
+2026-02-14 11:17:41.736364 - INFO - ${text} = Remove
+2026-02-14 11:17:41.736364 - INFO - +----- END KEYWORD: SeleniumLibrary.Get Text (0.015914 s)
+2026-02-14 11:17:41.736364 - INFO - +----- START KEYWORD: BuiltIn.Should Be Equal [ ${text} | Remove | Bouton inattendu : ${text} ]
+2026-02-14 11:17:41.736364 - DEBUG - Argument types are:
+<class 'str'>
+<class 'str'>
+2026-02-14 11:17:41.736364 - INFO - +----- END KEYWORD: BuiltIn.Should Be Equal (0.0 s)
+2026-02-14 11:17:41.736364 - INFO - +----- START KEYWORD: SeleniumLibrary.Click Element [ ${locator} ]
+2026-02-14 11:17:41.736364 - INFO - Clicking element 'xpath=//div[text()='Sauce Labs Bike Light']/ancestor::div[@class='inventory_item']//button'.
+2026-02-14 11:17:41.822416 - INFO - +----- END KEYWORD: SeleniumLibrary.Click Element (0.086052 s)
+2026-02-14 11:17:41.822416 - INFO - +----- START KEYWORD: BuiltIn.Set Variable [ xpath=//div[text()='${item_name}']/ancestor::div[@class='inventory_item']//button ]
+2026-02-14 11:17:41.823625 - INFO - ${locator} = xpath=//div[text()='Sauce Labs Bike Light']/ancestor::div[@class='inventory_item']//button
+2026-02-14 11:17:41.823625 - INFO - +----- END KEYWORD: BuiltIn.Set Variable (0.001209 s)
+2026-02-14 11:17:41.823625 - INFO - +----- START KEYWORD: SeleniumLibrary.Wait Until Element Is Visible [ ${locator} | timeout=10s ]
+2026-02-14 11:17:41.843214 - INFO - +----- END KEYWORD: SeleniumLibrary.Wait Until Element Is Visible (0.019589 s)
+2026-02-14 11:17:41.843214 - INFO - +----- START KEYWORD: SeleniumLibrary.Wait Until Element Is Enabled [ ${locator} | timeout=10s ]
+2026-02-14 11:17:41.868687 - INFO - +----- END KEYWORD: SeleniumLibrary.Wait Until Element Is Enabled (0.025473 s)
+2026-02-14 11:17:41.868687 - INFO - +----- START KEYWORD: SeleniumLibrary.Get Text [ ${locator} ]
+2026-02-14 11:17:41.872922 - INFO - ${text} = Add to cart
+2026-02-14 11:17:41.872922 - INFO - +----- END KEYWORD: SeleniumLibrary.Get Text (0.004235 s)
+2026-02-14 11:17:41.872922 - INFO - +----- START KEYWORD: BuiltIn.Should Be Equal [ ${text} | Add to cart | Bouton inattendu : ${text} ]
+2026-02-14 11:17:41.872922 - DEBUG - Argument types are:
+<class 'str'>
+<class 'str'>
+2026-02-14 11:17:41.872922 - INFO - +----- END KEYWORD: BuiltIn.Should Be Equal (0.0 s)
+2026-02-14 11:17:41.872922 - INFO - +---- END KEYWORD: inventory.Remove Item From Cart (0.199928 s)
+2026-02-14 11:17:41.872922 - INFO - +--- END ITERATION: ${item} = Sauce Labs Bike Light (0.199928 s)
+2026-02-14 11:17:41.872922 - INFO - +--- START ITERATION: ${item} = Sauce Labs Bolt T-Shirt
+2026-02-14 11:17:41.888563 - INFO - +---- START KEYWORD: inventory.Remove Item From Cart [ ${item} ]
+2026-02-14 11:17:41.888563 - INFO - +----- START KEYWORD: BuiltIn.Set Variable [ xpath=//div[text()='${item_name}']/ancestor::div[@class='inventory_item']//button ]
+2026-02-14 11:17:41.888563 - INFO - ${locator} = xpath=//div[text()='Sauce Labs Bolt T-Shirt']/ancestor::div[@class='inventory_item']//button
+2026-02-14 11:17:41.888563 - INFO - +----- END KEYWORD: BuiltIn.Set Variable (0.0 s)
+2026-02-14 11:17:41.888563 - INFO - +----- START KEYWORD: SeleniumLibrary.Wait Until Element Is Visible [ ${locator} | timeout=10s ]
+2026-02-14 11:17:41.906214 - INFO - +----- END KEYWORD: SeleniumLibrary.Wait Until Element Is Visible (0.017651 s)
+2026-02-14 11:17:41.906214 - INFO - +----- START KEYWORD: SeleniumLibrary.Wait Until Element Is Enabled [ ${locator} | timeout=10s ]
+2026-02-14 11:17:41.930691 - INFO - +----- END KEYWORD: SeleniumLibrary.Wait Until Element Is Enabled (0.024477 s)
+2026-02-14 11:17:41.930691 - INFO - +----- START KEYWORD: SeleniumLibrary.Get Text [ ${locator} ]
+2026-02-14 11:17:41.951703 - INFO - ${text} = Remove
+2026-02-14 11:17:41.951703 - INFO - +----- END KEYWORD: SeleniumLibrary.Get Text (0.021012 s)
+2026-02-14 11:17:41.951703 - INFO - +----- START KEYWORD: BuiltIn.Should Be Equal [ ${text} | Remove | Bouton inattendu : ${text} ]
+2026-02-14 11:17:41.951703 - DEBUG - Argument types are:
+<class 'str'>
+<class 'str'>
+2026-02-14 11:17:41.951703 - INFO - +----- END KEYWORD: BuiltIn.Should Be Equal (0.0 s)
+2026-02-14 11:17:41.951703 - INFO - +----- START KEYWORD: SeleniumLibrary.Click Element [ ${locator} ]
+2026-02-14 11:17:41.951703 - INFO - Clicking element 'xpath=//div[text()='Sauce Labs Bolt T-Shirt']/ancestor::div[@class='inventory_item']//button'.
+2026-02-14 11:17:42.024984 - INFO - +----- END KEYWORD: SeleniumLibrary.Click Element (0.073281 s)
+2026-02-14 11:17:42.024984 - INFO - +----- START KEYWORD: BuiltIn.Set Variable [ xpath=//div[text()='${item_name}']/ancestor::div[@class='inventory_item']//button ]
+2026-02-14 11:17:42.024984 - INFO - ${locator} = xpath=//div[text()='Sauce Labs Bolt T-Shirt']/ancestor::div[@class='inventory_item']//button
+2026-02-14 11:17:42.024984 - INFO - +----- END KEYWORD: BuiltIn.Set Variable (0.0 s)
+2026-02-14 11:17:42.024984 - INFO - +----- START KEYWORD: SeleniumLibrary.Wait Until Element Is Visible [ ${locator} | timeout=10s ]
+2026-02-14 11:17:42.044710 - INFO - +----- END KEYWORD: SeleniumLibrary.Wait Until Element Is Visible (0.019726 s)
+2026-02-14 11:17:42.044710 - INFO - +----- START KEYWORD: SeleniumLibrary.Wait Until Element Is Enabled [ ${locator} | timeout=10s ]
+2026-02-14 11:17:42.069027 - INFO - +----- END KEYWORD: SeleniumLibrary.Wait Until Element Is Enabled (0.024317 s)
+2026-02-14 11:17:42.069027 - INFO - +----- START KEYWORD: SeleniumLibrary.Get Text [ ${locator} ]
+2026-02-14 11:17:42.074026 - INFO - ${text} = Add to cart
+2026-02-14 11:17:42.074026 - INFO - +----- END KEYWORD: SeleniumLibrary.Get Text (0.004999 s)
+2026-02-14 11:17:42.074026 - INFO - +----- START KEYWORD: BuiltIn.Should Be Equal [ ${text} | Add to cart | Bouton inattendu : ${text} ]
+2026-02-14 11:17:42.074026 - DEBUG - Argument types are:
+<class 'str'>
+<class 'str'>
+2026-02-14 11:17:42.074026 - INFO - +----- END KEYWORD: BuiltIn.Should Be Equal (0.0 s)
+2026-02-14 11:17:42.074026 - INFO - +---- END KEYWORD: inventory.Remove Item From Cart (0.185463 s)
+2026-02-14 11:17:42.074026 - INFO - +--- END ITERATION: ${item} = Sauce Labs Bolt T-Shirt (0.201104 s)
+2026-02-14 11:17:42.074026 - INFO - +--- START ITERATION: ${item} = Sauce Labs Fleece Jacket
+2026-02-14 11:17:42.089904 - INFO - +---- START KEYWORD: inventory.Remove Item From Cart [ ${item} ]
+2026-02-14 11:17:42.089904 - INFO - +----- START KEYWORD: BuiltIn.Set Variable [ xpath=//div[text()='${item_name}']/ancestor::div[@class='inventory_item']//button ]
+2026-02-14 11:17:42.089904 - INFO - ${locator} = xpath=//div[text()='Sauce Labs Fleece Jacket']/ancestor::div[@class='inventory_item']//button
+2026-02-14 11:17:42.089904 - INFO - +----- END KEYWORD: BuiltIn.Set Variable (0.0 s)
+2026-02-14 11:17:42.089904 - INFO - +----- START KEYWORD: SeleniumLibrary.Wait Until Element Is Visible [ ${locator} | timeout=10s ]
+2026-02-14 11:17:42.106105 - INFO - +----- END KEYWORD: SeleniumLibrary.Wait Until Element Is Visible (0.016201 s)
+2026-02-14 11:17:42.106105 - INFO - +----- START KEYWORD: SeleniumLibrary.Wait Until Element Is Enabled [ ${locator} | timeout=10s ]
+2026-02-14 11:17:42.121716 - INFO - +----- END KEYWORD: SeleniumLibrary.Wait Until Element Is Enabled (0.015611 s)
+2026-02-14 11:17:42.121716 - INFO - +----- START KEYWORD: SeleniumLibrary.Get Text [ ${locator} ]
+2026-02-14 11:17:42.153339 - INFO - ${text} = Remove
+2026-02-14 11:17:42.153339 - INFO - +----- END KEYWORD: SeleniumLibrary.Get Text (0.031623 s)
+2026-02-14 11:17:42.153339 - INFO - +----- START KEYWORD: BuiltIn.Should Be Equal [ ${text} | Remove | Bouton inattendu : ${text} ]
+2026-02-14 11:17:42.153339 - DEBUG - Argument types are:
+<class 'str'>
+<class 'str'>
+2026-02-14 11:17:42.153339 - INFO - +----- END KEYWORD: BuiltIn.Should Be Equal (0.0 s)
+2026-02-14 11:17:42.153339 - INFO - +----- START KEYWORD: SeleniumLibrary.Click Element [ ${locator} ]
+2026-02-14 11:17:42.153339 - INFO - Clicking element 'xpath=//div[text()='Sauce Labs Fleece Jacket']/ancestor::div[@class='inventory_item']//button'.
+2026-02-14 11:17:42.229952 - INFO - +----- END KEYWORD: SeleniumLibrary.Click Element (0.076613 s)
+2026-02-14 11:17:42.230961 - INFO - +----- START KEYWORD: BuiltIn.Set Variable [ xpath=//div[text()='${item_name}']/ancestor::div[@class='inventory_item']//button ]
+2026-02-14 11:17:42.230961 - INFO - ${locator} = xpath=//div[text()='Sauce Labs Fleece Jacket']/ancestor::div[@class='inventory_item']//button
+2026-02-14 11:17:42.230961 - INFO - +----- END KEYWORD: BuiltIn.Set Variable (0.0 s)
+2026-02-14 11:17:42.230961 - INFO - +----- START KEYWORD: SeleniumLibrary.Wait Until Element Is Visible [ ${locator} | timeout=10s ]
+2026-02-14 11:17:42.239823 - INFO - +----- END KEYWORD: SeleniumLibrary.Wait Until Element Is Visible (0.008862 s)
+2026-02-14 11:17:42.239823 - INFO - +----- START KEYWORD: SeleniumLibrary.Wait Until Element Is Enabled [ ${locator} | timeout=10s ]
+2026-02-14 11:17:42.277720 - INFO - +----- END KEYWORD: SeleniumLibrary.Wait Until Element Is Enabled (0.037897 s)
+2026-02-14 11:17:42.277720 - INFO - +----- START KEYWORD: SeleniumLibrary.Get Text [ ${locator} ]
+2026-02-14 11:17:42.290221 - INFO - ${text} = Add to cart
+2026-02-14 11:17:42.290221 - INFO - +----- END KEYWORD: SeleniumLibrary.Get Text (0.012501 s)
+2026-02-14 11:17:42.290221 - INFO - +----- START KEYWORD: BuiltIn.Should Be Equal [ ${text} | Add to cart | Bouton inattendu : ${text} ]
+2026-02-14 11:17:42.290221 - DEBUG - Argument types are:
+<class 'str'>
+<class 'str'>
+2026-02-14 11:17:42.290221 - INFO - +----- END KEYWORD: BuiltIn.Should Be Equal (0.0 s)
+2026-02-14 11:17:42.290221 - INFO - +---- END KEYWORD: inventory.Remove Item From Cart (0.200317 s)
+2026-02-14 11:17:42.290221 - INFO - +--- END ITERATION: ${item} = Sauce Labs Fleece Jacket (0.216195 s)
+2026-02-14 11:17:42.290221 - INFO - +--- START ITERATION: ${item} = Sauce Labs Onesie
+2026-02-14 11:17:42.290221 - INFO - +---- START KEYWORD: inventory.Remove Item From Cart [ ${item} ]
+2026-02-14 11:17:42.290221 - INFO - +----- START KEYWORD: BuiltIn.Set Variable [ xpath=//div[text()='${item_name}']/ancestor::div[@class='inventory_item']//button ]
+2026-02-14 11:17:42.290221 - INFO - ${locator} = xpath=//div[text()='Sauce Labs Onesie']/ancestor::div[@class='inventory_item']//button
+2026-02-14 11:17:42.290221 - INFO - +----- END KEYWORD: BuiltIn.Set Variable (0.0 s)
+2026-02-14 11:17:42.290221 - INFO - +----- START KEYWORD: SeleniumLibrary.Wait Until Element Is Visible [ ${locator} | timeout=10s ]
+2026-02-14 11:17:42.314159 - INFO - +----- END KEYWORD: SeleniumLibrary.Wait Until Element Is Visible (0.023938 s)
+2026-02-14 11:17:42.314159 - INFO - +----- START KEYWORD: SeleniumLibrary.Wait Until Element Is Enabled [ ${locator} | timeout=10s ]
+2026-02-14 11:17:42.337390 - INFO - +----- END KEYWORD: SeleniumLibrary.Wait Until Element Is Enabled (0.023231 s)
+2026-02-14 11:17:42.337390 - INFO - +----- START KEYWORD: SeleniumLibrary.Get Text [ ${locator} ]
+2026-02-14 11:17:42.353413 - INFO - ${text} = Remove
+2026-02-14 11:17:42.353413 - INFO - +----- END KEYWORD: SeleniumLibrary.Get Text (0.016023 s)
+2026-02-14 11:17:42.353413 - INFO - +----- START KEYWORD: BuiltIn.Should Be Equal [ ${text} | Remove | Bouton inattendu : ${text} ]
+2026-02-14 11:17:42.353413 - DEBUG - Argument types are:
+<class 'str'>
+<class 'str'>
+2026-02-14 11:17:42.353413 - INFO - +----- END KEYWORD: BuiltIn.Should Be Equal (0.0 s)
+2026-02-14 11:17:42.353413 - INFO - +----- START KEYWORD: SeleniumLibrary.Click Element [ ${locator} ]
+2026-02-14 11:17:42.353413 - INFO - Clicking element 'xpath=//div[text()='Sauce Labs Onesie']/ancestor::div[@class='inventory_item']//button'.
+2026-02-14 11:17:42.435096 - INFO - +----- END KEYWORD: SeleniumLibrary.Click Element (0.081683 s)
+2026-02-14 11:17:42.436099 - INFO - +----- START KEYWORD: BuiltIn.Set Variable [ xpath=//div[text()='${item_name}']/ancestor::div[@class='inventory_item']//button ]
+2026-02-14 11:17:42.436099 - INFO - ${locator} = xpath=//div[text()='Sauce Labs Onesie']/ancestor::div[@class='inventory_item']//button
+2026-02-14 11:17:42.436099 - INFO - +----- END KEYWORD: BuiltIn.Set Variable (0.0 s)
+2026-02-14 11:17:42.436099 - INFO - +----- START KEYWORD: SeleniumLibrary.Wait Until Element Is Visible [ ${locator} | timeout=10s ]
+2026-02-14 11:17:42.439663 - INFO - +----- END KEYWORD: SeleniumLibrary.Wait Until Element Is Visible (0.003564 s)
+2026-02-14 11:17:42.455294 - INFO - +----- START KEYWORD: SeleniumLibrary.Wait Until Element Is Enabled [ ${locator} | timeout=10s ]
+2026-02-14 11:17:42.479681 - INFO - +----- END KEYWORD: SeleniumLibrary.Wait Until Element Is Enabled (0.024387 s)
+2026-02-14 11:17:42.479681 - INFO - +----- START KEYWORD: SeleniumLibrary.Get Text [ ${locator} ]
+2026-02-14 11:17:42.490301 - INFO - ${text} = Add to cart
+2026-02-14 11:17:42.490301 - INFO - +----- END KEYWORD: SeleniumLibrary.Get Text (0.01062 s)
+2026-02-14 11:17:42.490301 - INFO - +----- START KEYWORD: BuiltIn.Should Be Equal [ ${text} | Add to cart | Bouton inattendu : ${text} ]
+2026-02-14 11:17:42.490301 - DEBUG - Argument types are:
+<class 'str'>
+<class 'str'>
+2026-02-14 11:17:42.490301 - INFO - +----- END KEYWORD: BuiltIn.Should Be Equal (0.0 s)
+2026-02-14 11:17:42.490301 - INFO - +---- END KEYWORD: inventory.Remove Item From Cart (0.20008 s)
+2026-02-14 11:17:42.490301 - INFO - +--- END ITERATION: ${item} = Sauce Labs Onesie (0.20008 s)
+2026-02-14 11:17:42.490301 - INFO - +--- START ITERATION: ${item} = Test.allTheThings() T-Shirt (Red)
+2026-02-14 11:17:42.490301 - INFO - +---- START KEYWORD: inventory.Remove Item From Cart [ ${item} ]
+2026-02-14 11:17:42.490301 - INFO - +----- START KEYWORD: BuiltIn.Set Variable [ xpath=//div[text()='${item_name}']/ancestor::div[@class='inventory_item']//button ]
+2026-02-14 11:17:42.490301 - INFO - ${locator} = xpath=//div[text()='Test.allTheThings() T-Shirt (Red)']/ancestor::div[@class='inventory_item']//button
+2026-02-14 11:17:42.490301 - INFO - +----- END KEYWORD: BuiltIn.Set Variable (0.0 s)
+2026-02-14 11:17:42.490301 - INFO - +----- START KEYWORD: SeleniumLibrary.Wait Until Element Is Visible [ ${locator} | timeout=10s ]
+2026-02-14 11:17:42.506463 - INFO - +----- END KEYWORD: SeleniumLibrary.Wait Until Element Is Visible (0.016162 s)
+2026-02-14 11:17:42.506463 - INFO - +----- START KEYWORD: SeleniumLibrary.Wait Until Element Is Enabled [ ${locator} | timeout=10s ]
+2026-02-14 11:17:42.537480 - INFO - +----- END KEYWORD: SeleniumLibrary.Wait Until Element Is Enabled (0.031017 s)
+2026-02-14 11:17:42.537480 - INFO - +----- START KEYWORD: SeleniumLibrary.Get Text [ ${locator} ]
+2026-02-14 11:17:42.553246 - INFO - ${text} = Remove
+2026-02-14 11:17:42.553246 - INFO - +----- END KEYWORD: SeleniumLibrary.Get Text (0.015766 s)
+2026-02-14 11:17:42.553246 - INFO - +----- START KEYWORD: BuiltIn.Should Be Equal [ ${text} | Remove | Bouton inattendu : ${text} ]
+2026-02-14 11:17:42.553246 - DEBUG - Argument types are:
+<class 'str'>
+<class 'str'>
+2026-02-14 11:17:42.553246 - INFO - +----- END KEYWORD: BuiltIn.Should Be Equal (0.0 s)
+2026-02-14 11:17:42.553246 - INFO - +----- START KEYWORD: SeleniumLibrary.Click Element [ ${locator} ]
+2026-02-14 11:17:42.553246 - INFO - Clicking element 'xpath=//div[text()='Test.allTheThings() T-Shirt (Red)']/ancestor::div[@class='inventory_item']//button'.
+2026-02-14 11:17:42.630486 - INFO - +----- END KEYWORD: SeleniumLibrary.Click Element (0.07724 s)
+2026-02-14 11:17:42.631532 - INFO - +----- START KEYWORD: BuiltIn.Set Variable [ xpath=//div[text()='${item_name}']/ancestor::div[@class='inventory_item']//button ]
+2026-02-14 11:17:42.631532 - INFO - ${locator} = xpath=//div[text()='Test.allTheThings() T-Shirt (Red)']/ancestor::div[@class='inventory_item']//button
+2026-02-14 11:17:42.631532 - INFO - +----- END KEYWORD: BuiltIn.Set Variable (0.0 s)
+2026-02-14 11:17:42.631532 - INFO - +----- START KEYWORD: SeleniumLibrary.Wait Until Element Is Visible [ ${locator} | timeout=10s ]
+2026-02-14 11:17:42.641077 - INFO - +----- END KEYWORD: SeleniumLibrary.Wait Until Element Is Visible (0.009545 s)
+2026-02-14 11:17:42.641077 - INFO - +----- START KEYWORD: SeleniumLibrary.Wait Until Element Is Enabled [ ${locator} | timeout=10s ]
+2026-02-14 11:17:42.682138 - INFO - +----- END KEYWORD: SeleniumLibrary.Wait Until Element Is Enabled (0.041061 s)
+2026-02-14 11:17:42.682138 - INFO - +----- START KEYWORD: SeleniumLibrary.Get Text [ ${locator} ]
+2026-02-14 11:17:42.690135 - INFO - ${text} = Add to cart
+2026-02-14 11:17:42.690135 - INFO - +----- END KEYWORD: SeleniumLibrary.Get Text (0.007997 s)
+2026-02-14 11:17:42.690135 - INFO - +----- START KEYWORD: BuiltIn.Should Be Equal [ ${text} | Add to cart | Bouton inattendu : ${text} ]
+2026-02-14 11:17:42.690135 - DEBUG - Argument types are:
+<class 'str'>
+<class 'str'>
+2026-02-14 11:17:42.690135 - INFO - +----- END KEYWORD: BuiltIn.Should Be Equal (0.0 s)
+2026-02-14 11:17:42.690135 - INFO - +---- END KEYWORD: inventory.Remove Item From Cart (0.199834 s)
+2026-02-14 11:17:42.690135 - INFO - +--- END ITERATION: ${item} = Test.allTheThings() T-Shirt (Red) (0.199834 s)
+2026-02-14 11:17:42.690135 - INFO - +-- END FOR: ${item}    IN    @{ITEM_LIST} (1.222477 s)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2026-02-14 11:17:42.690135 - INFO - +-- START KEYWORD: inventory.Get Cart Badge [ ]
+2026-02-14 11:17:42.690135 - INFO - +--- START KEYWORD: BuiltIn.Run Keyword And Return Status [ Page Should Contain Element | ${SHOPPING_CART_BADGE} ]
+2026-02-14 11:17:42.690135 - INFO - +---- START KEYWORD: SeleniumLibrary.Page Should Contain Element [ ${SHOPPING_CART_BADGE} ]
+2026-02-14 11:17:42.853925 - INFO - </td></tr><tr><td colspan="3"><a href="selenium-screenshot-6.png"><img src="selenium-screenshot-6.png" width="800px"></a>
+2026-02-14 11:17:42.853925 - FAIL - Page should have contained element 'css=.shopping_cart_badge' but did not.
+2026-02-14 11:17:42.853925 - DEBUG - Traceback (most recent call last):
+  File "C:\test_auto_portefolio_VCA\saucedemo\robotframework\.venv\Lib\site-packages\SeleniumLibrary\__init__.py", line 676, in run_keyword
+    return DynamicCore.run_keyword(self, name, args, kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\test_auto_portefolio_VCA\saucedemo\robotframework\.venv\Lib\site-packages\robotlibcore\core\dynamic.py", line 25, in run_keyword
+    return self.keywords[name](*args, **(kwargs or {}))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\test_auto_portefolio_VCA\saucedemo\robotframework\.venv\Lib\site-packages\SeleniumLibrary\keywords\element.py", line 182, in page_should_contain_element
+    return self.assert_page_contains(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\test_auto_portefolio_VCA\saucedemo\robotframework\.venv\Lib\site-packages\SeleniumLibrary\base\librarycomponent.py", line 60, in assert_page_contains
+    raise AssertionError(message)
+AssertionError: Page should have contained element 'css=.shopping_cart_badge' but did not.
+2026-02-14 11:17:42.853925 - INFO - +---- END KEYWORD: SeleniumLibrary.Page Should Contain Element (0.16379 s)
+2026-02-14 11:17:42.858455 - INFO - ${exists} = False
+2026-02-14 11:17:42.858455 - INFO - +--- END KEYWORD: BuiltIn.Run Keyword And Return Status (0.16832 s)
+2026-02-14 11:17:42.858455 - INFO - +--- START IF/ELSE ROOT:
+2026-02-14 11:17:42.858455 - INFO - +---- START IF: not ${exists}
+2026-02-14 11:17:42.858455 - INFO - +----- START RETURN:
+2026-02-14 11:17:42.858455 - INFO - +----- END RETURN:  (0.0 s)
+2026-02-14 11:17:42.858455 - INFO - +---- END IF: not ${exists} (0.0 s)
+2026-02-14 11:17:42.858455 - INFO - +--- END IF/ELSE ROOT:  (0.0 s)
+2026-02-14 11:17:42.858455 - INFO - +--- START KEYWORD: SeleniumLibrary.Wait Until Element Is Visible [ ${SHOPPING_CART_BADGE} | timeout=10s ]
+2026-02-14 11:17:42.858455 - INFO - +--- END KEYWORD: SeleniumLibrary.Wait Until Element Is Visible (0.0 s)
+2026-02-14 11:17:42.858455 - INFO - +--- START KEYWORD: SeleniumLibrary.Wait Until Element Is Enabled [ ${SHOPPING_CART_BADGE} | timeout=10s ]
+2026-02-14 11:17:42.858455 - INFO - +--- END KEYWORD: SeleniumLibrary.Wait Until Element Is Enabled (0.0 s)
+2026-02-14 11:17:42.858455 - INFO - +--- START KEYWORD: SeleniumLibrary.Get Text [ ${SHOPPING_CART_BADGE} ]
+2026-02-14 11:17:42.858455 - INFO - +--- END KEYWORD: SeleniumLibrary.Get Text (0.0 s)
+2026-02-14 11:17:42.858455 - INFO - +--- START KEYWORD: String.Strip String [ ${text} ]
+2026-02-14 11:17:42.858455 - INFO - +--- END KEYWORD: String.Strip String (0.0 s)
+2026-02-14 11:17:42.858455 - INFO - +--- START IF/ELSE ROOT:
+2026-02-14 11:17:42.858455 - INFO - +---- START IF: '${text}' == ''
+2026-02-14 11:17:42.858455 - INFO - +----- START RETURN:
+2026-02-14 11:17:42.860461 - INFO - +----- END RETURN:  (0.002006 s)
+2026-02-14 11:17:42.860461 - INFO - +---- END IF: '${text}' == '' (0.002006 s)
+2026-02-14 11:17:42.860461 - INFO - +--- END IF/ELSE ROOT:  (0.002006 s)
+2026-02-14 11:17:42.860461 - INFO - +--- START KEYWORD: BuiltIn.Convert To Integer [ ${text} ]
+2026-02-14 11:17:42.860461 - INFO - +--- END KEYWORD: BuiltIn.Convert To Integer (0.0 s)
+2026-02-14 11:17:42.860461 - INFO - +--- START RETURN:
+2026-02-14 11:17:42.860461 - INFO - +--- END RETURN:  (0.0 s)
+2026-02-14 11:17:42.860461 - INFO - ${nb_items} = 0
+2026-02-14 11:17:42.860461 - INFO - +-- END KEYWORD: inventory.Get Cart Badge (0.170326 s)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2026-02-14 11:17:42.860461 - INFO - +-- START KEYWORD: BuiltIn.Should Be Equal As Integers [ ${nb_items} | 0 ]
+2026-02-14 11:17:42.860461 - DEBUG - Argument types are:
+<class 'str'>
+<class 'str'>
+2026-02-14 11:17:42.860461 - INFO - +-- END KEYWORD: BuiltIn.Should Be Equal As Integers (0.0 s)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2026-02-14 11:17:42.860461 - INFO - +-- START TEARDOWN: Login.Close Browser If Open [ ]
+2026-02-14 11:17:42.860461 - INFO - +--- START KEYWORD: BuiltIn.Run Keyword And Ignore Error [ Close Browser ]
+2026-02-14 11:17:42.860461 - INFO - +---- START KEYWORD: SeleniumLibrary.Close Browser [ ]
+2026-02-14 11:17:42.860461 - DEBUG - Closing browser with session id b599aa5b406921df7ededcedf81724a5.
+2026-02-14 11:17:45.107377 - INFO - +---- END KEYWORD: SeleniumLibrary.Close Browser (2.246916 s)
+2026-02-14 11:17:45.107377 - INFO - +--- END KEYWORD: BuiltIn.Run Keyword And Ignore Error (2.246916 s)
+2026-02-14 11:17:45.107377 - INFO - +-- END TEARDOWN: Login.Close Browser If Open (2.246916 s)
+------------------------------------------------------------------------------
+2026-02-14 11:17:45.107377 - INFO - +- END TEST: Add And Remove All Items (7.189603 s)
+------------------------------------------------------------------------------
+2026-02-14 11:17:45.107377 - INFO - + END SUITE: Test Inventory (16.783429 s)
+==============================================================================
