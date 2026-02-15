@@ -11,3 +11,7 @@ __pycache__/
 *.log
 log/
 allure-results/
+debug.txt
+log.html
+output.xml
+report.xml
