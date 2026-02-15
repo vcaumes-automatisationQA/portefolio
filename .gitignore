@@ -2,6 +2,7 @@
 __pycache__/
 *.pyc
 .venv/
+.pytest_cache/
 
 # IDE
 .idea/
@@ -9,3 +10,4 @@ __pycache__/
 # Logs
 *.log
 log/
+allure-results/
