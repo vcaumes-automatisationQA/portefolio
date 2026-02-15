@@ -1,6 +1,8 @@
 *** Settings ***
 Resource    ../pages/Login.resource
 Library     SeleniumLibrary
+Library    String
+Library    OperatingSystem
 
 *** Variables ***
 ${URL}    https://www.saucedemo.com/

@@ -45,6 +45,9 @@ Checkout Complete Order
     ${order_complete}=    Is Order Complete
     Should Be True    ${order_complete}
 
+    # Fermer automatiquement le navigateur à la fin de ce test, même si une vérification échoue
+    [Teardown]    Close Browser If Open
+
 Checkout Missing Info
     [Documentation]     Test du checkout dans le cas où on n'a pas rempli les information du formulaire
     # Se loguer à l'application
@@ -67,6 +70,8 @@ Checkout Missing Info
     ${error_message}=     Get Checkout Error Message
     Should Contain    ${error_message}    Error
 
+    # Fermer automatiquement le navigateur à la fin de ce test, même si une vérification échoue
+    [Teardown]    Close Browser If Open
 
 Checkout Cancel And Return To Cart
     [Documentation]     Test du checkout dans le cas où on appuie sur le bouton 'Cancel'
@@ -87,3 +92,6 @@ Checkout Cancel And Return To Cart
 
     # Vérifier qu'on est revenu sur la page du panier
     Location Should Contain    cart.html
+
+    # Fermer automatiquement le navigateur à la fin de ce test, même si une vérification échoue
+    [Teardown]    Close Browser If Open

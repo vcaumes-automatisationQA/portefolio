@@ -37,6 +37,8 @@ Logout Standard
     # Vérifier que l'URL est correcte
     Location Should Be    ${URL}
 
+    # Fermer automatiquement le navigateur à la fin de ce test, même si une vérification échoue
+    [Teardown]    Close Browser If Open
 
 Inventory Not Accessible After Logout
     [Documentation]     Vérifier que l'on ne peut pas accèder à la page inventory.html après s'être délogué et qu'on est redirigé vers la page de login
@@ -60,3 +62,6 @@ Inventory Not Accessible After Logout
 
     # Maintenant on peut vérifier l'URL
     Location Should Be    ${URL}
+
+    # Fermer automatiquement le navigateur à la fin de ce test, même si une vérification échoue
+    [Teardown]    Close Browser If Open
