@@ -57,11 +57,7 @@ Activer l'environnement :
 -------------------------
 
 Windows :
-    venv\Scripts\activate
-
-Mac / Linux :
-    source venv/bin/activate
-
+    venv\Scripts\activate.ps1
 
 Pour désactiver l'environnement (en fin de test ou avant de charger un autre environnement) :
 -------------------------------------------------------------------------------------------
@@ -98,12 +94,9 @@ Lancer les tests dans le dossier tests :
 6) Installer Allure CLI sur Windows
 ------------------------------------------------------------
 Important : "allure-pytest" est une librairie Python.
-Elle **n’installe pas** la commande `allure`.
+Elle n’installe pas la commande `allure`.
 Il faut installer Allure Commandline (CLI) séparément.
 
-------------------------------------------------------------
-Option A (recommandée) : Installer Allure avec Scoop
-------------------------------------------------------------
 Ouvrir PowerShell (de préférence en administrateur) et exécuter :
 
     Set-ExecutionPolicy RemoteSigned -Scope CurrentUser
@@ -118,35 +111,7 @@ Vérifier l'installation :
     allure --version
 
 ------------------------------------------------------------
-Option B : Installer Allure avec Chocolatey
-------------------------------------------------------------
-Si Chocolatey est installé :
-
-    choco install allure
-
-Vérifier :
-
-    allure --version
-
-------------------------------------------------------------
-Option C : Installation manuelle
-------------------------------------------------------------
-1) Télécharger Allure Commandline (zip) depuis :
-   https://github.com/allure-framework/allure2/releases
-
-2) Extraire le dossier (ex : C:\allure)
-
-3) Ajouter le chemin suivant dans votre PATH Windows :
-   C:\allure\bin
-
-4) Redémarrer PowerShell
-
-5) Vérifier :
-
-   allure --version
-
-------------------------------------------------------------
-7) Optionnel : Générer un rapport HTML (alternative à Allure)
+7) Générer un rapport HTML (alternative à Allure)
 ------------------------------------------------------------
 Vous pouvez également générer un simple rapport HTML avec pytest-html :
 
