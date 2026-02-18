@@ -57,9 +57,8 @@ Dans le dossier du projet :
 
 Activer l'environnement :
 -------------------------
-
-Windows :
-    venv\Scripts\activate.ps1
+    cd .venv\Scripts\
+	.\activate.ps1
 
 Pour désactiver l'environnement (en fin de test ou avant de charger un autre environnement) :
 -------------------------------------------------------------------------------------------
