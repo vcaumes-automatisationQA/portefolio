@@ -41,7 +41,7 @@ requirements-freeze.txt (liste détaillée des exigences)
 - Python 3.12 recommandé (vérifier avec : python --version)
 - Google Chrome installé
 - pip installé (fourni avec Python)
-- (Optionnel mais recommandé) Allure CLI pour le reporting
+- (Optionnel) Allure CLI pour le reporting
 
 Se placer dans le répertoire racine du projet avant d’exécuter les commandes
 
@@ -54,9 +54,8 @@ Dans le dossier du projet :
 
 Activer l'environnement :
 -------------------------
-
-Windows :
-    venv\Scripts\activate.ps1
+    cd .venv\Scripts\
+	.\activate.ps1
 
 Pour désactiver l'environnement (en fin de test ou avant de charger un autre environnement) :
 -------------------------------------------------------------------------------------------
